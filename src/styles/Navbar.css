@@ -1,0 +1,27 @@
+.navbar {
+  background-color: var(--light-blue) !important;
+  min-height: 90px !important;
+  height: 90px !important;
+  max-height: 90px !important;
+}
+
+.navbar-brand{
+    color: var(--white) !important
+}
+
+.navbar-brand:hover{
+    color: var(--green-tint) !important;
+}
+
+.nav-links .nav-link{
+    color: var(--white) !important;
+}
+
+.nav-links .nav-link:hover{
+    color: var(--green-tint) !important;
+}
+
+/* Target all icons */
+.social-icons .MuiSvgIcon-root:hover{
+    color: var(--green-tint) !important;
+}
