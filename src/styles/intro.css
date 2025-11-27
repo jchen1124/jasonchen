@@ -1,0 +1,54 @@
+#intro {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  background-color: var(--light-blue);
+  font-size: 85px;
+  color: var(--white);
+  font-family: "Alfa Slab One", serif !important;
+  position: relative;
+}
+
+canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+}
+
+.intro-name{
+    color: var(--green-tint);
+    font-family:  "Alfa Slab One", serif;
+    font-weight: bolder;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  font-size: 75px;
+  margin-left: -19px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.intro-description{
+    margin-top: -20px;
+    font-size: 22px;
+    font-family: "Lexend", sans-serif;
+    max-width: 600px;
+}
