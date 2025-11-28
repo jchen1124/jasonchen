@@ -1,0 +1,19 @@
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 0.8s ease-in forwards;
+}
+
+.fade-in.visible {
+  animation: fadeInAnimation 0.8s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

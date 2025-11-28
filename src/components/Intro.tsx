@@ -1,5 +1,6 @@
 import Typist from "react-typist-component";
 import GeometricScene from "./Geometric";
+import FadeIn from "./FadeIn";
 import "../styles/intro.css";
 
 const Intro = () => {
@@ -12,11 +13,13 @@ const Intro = () => {
           </span>
           <Typist.Delay ms={800} />
         </Typist>
+        <FadeIn> 
         <div className="intro-description">
           I'm an aspiring software engineer from Maryland. I am passionate about
           building impactful software solutions and continuously learning new
           technologies.
         </div>
+        </FadeIn>
     </div>
   );
 };
