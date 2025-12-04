@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import Intro from "./components/Intro"
 import About from "./components/About"
+import Projects from "./components/Projects"
 import Experience from "./components/Experience"
 import "./styles/Global.css"
 import "./App.css"
@@ -13,6 +14,7 @@ function App() {
     <div id="content">
       <About/>
       <Experience/>
+      <Projects/>
     </div>
   </div>
 }

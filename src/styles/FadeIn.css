@@ -1,6 +1,6 @@
 .fade-in {
   opacity: 0;
-  animation: fadeInAnimation 0.8s ease-in forwards;
+  /* transform: translateY(20px); */
 }
 
 .fade-in.visible {

@@ -1,0 +1,13 @@
+#projects{
+    padding-top: 150px;
+    margin: auto;
+    max-width: 1000px;
+    /* max-height: 50vh; */
+}
+
+.projects-list{
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    gap: 40px;
+    margin-top: 40px;
+}
