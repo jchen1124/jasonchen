@@ -2,6 +2,16 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  cursor: none;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
 #content {
   /* background-color: var(--light-blue); */
   width: 100%;

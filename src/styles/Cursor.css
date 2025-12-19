@@ -1,0 +1,21 @@
+.cursor-outer,
+.cursor-inner {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+  z-index: 9999;
+}
+
+.cursor-outer {
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+}
+
+.cursor-inner {
+  width: 8px;
+  height: 8px;
+  background: white;
+}
