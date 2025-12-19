@@ -1,0 +1,17 @@
+.card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: var(--lightest-navy);
+  color: white;
+  overflow: hidden;
+  font-family: "Lexend", sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+}
+
+.card:hover img {
+  opacity: 0.8;
+}

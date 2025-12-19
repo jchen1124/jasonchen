@@ -1,6 +1,7 @@
 // import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import "../styles/Card.css";
 
 interface ProjectType {
   title: string;
@@ -16,7 +17,7 @@ interface CardProps {
 
 const ProjectCard = ({ project }: CardProps) => {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "330px" }}>
       <Card.Img
         variant="top"
         src={`/assets/${project.image}`}
@@ -25,6 +26,7 @@ const ProjectCard = ({ project }: CardProps) => {
       <Card.Body>
         <Card.Title>{project.title}</Card.Title>
         <Card.Text>{project.desc}</Card.Text>
+        <Card.Text>{project.tech.join(", ")}</Card.Text>
         <a
           href={project.projectURL}
           target="_blank"

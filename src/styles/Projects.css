@@ -2,12 +2,18 @@
     padding-top: 150px;
     margin: auto;
     max-width: 1000px;
+    width: 100%;
+    box-sizing: border-box;
     /* max-height: 50vh; */
 }
 
 .projects-list{
     display: grid;
     grid-template-columns: repeat(3, 25%);
-    gap: 40px;
-    margin-top: 40px;
+    /* gap: 90px; */
+    row-gap: 25px;
+    column-gap: 100px;
+
+    /* column-gap: 20px; row-gap: 10px; */
+    /* margin-top: 40px; */
 }

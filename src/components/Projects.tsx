@@ -16,6 +16,7 @@ const Projects = () => {
 
   const [projects, setProjects] = useState<Project[]>([]);
 
+// Fetch projects from the backend API
   useEffect(() => {
     fetch("http://localhost:3002/api/projects")
       .then((res) => res.json())

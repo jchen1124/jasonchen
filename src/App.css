@@ -5,7 +5,10 @@ html {
 #content {
   /* background-color: var(--light-blue); */
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
+  padding-left: 370px;
+  padding-right: 370px;
 }
 
 body {
@@ -16,25 +19,23 @@ body {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 20px;
-  
+
   color: var(--white);
   font-family: "Alfa Slab One", serif;
 }
 
-.section-head{
-    padding-bottom: 50px;
+.section-head {
+  padding-bottom: 50px;
 }
 
-@media screen and (max-width: 600px){
-  .App{
+@media screen and (max-width: 600px) {
+  .App {
     flex-direction: column;
     padding: 40px 24px;
   }
 
-  #content{
+  #content {
     padding: 10px 10px;
-    width: 100%
+    width: 100%;
   }
-
-  
 }
