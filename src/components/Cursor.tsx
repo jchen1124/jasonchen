@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/Cursor.css";
 
-const Cursor: React.FC = () => {
+const Cursor = () => {
   const outerRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
 

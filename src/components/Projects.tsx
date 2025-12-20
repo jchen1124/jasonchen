@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import ProjectCard from "./Card"
+import FadeIn from "./FadeIn";
 import "../styles/Projects.css";
+
 
 interface Project {
   _id: string;
@@ -26,13 +28,15 @@ const Projects = () => {
   return (
     <div id="projects">
       <div className="section-head">
-        <span className="section-title">/ projects</span>
+        <span className="section-title">/ Projects</span>
       </div>
+        <FadeIn delay={100}>
         <div className="projects-list">
             {projects.map((project) =>(
                 <ProjectCard key={project._id.toString()} project={project}/>
             ))}
         </div>
+        </FadeIn>
     </div>
   );
 };

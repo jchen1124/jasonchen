@@ -1,16 +1,20 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 html,
 body {
   cursor: none;
+  
 }
 
 input,
 textarea {
   cursor: text;
 }
+
+
 
 #content {
   /* background-color: var(--light-blue); */
@@ -23,10 +27,11 @@ textarea {
 
 body {
   background-color: var(--light-blue);
+  
 }
 
 .section-title {
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 600;
   margin-bottom: 20px;
 

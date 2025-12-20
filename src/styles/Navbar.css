@@ -3,25 +3,65 @@
   min-height: 90px !important;
   height: 90px !important;
   max-height: 90px !important;
+  font-family: "Lexend", sans-serif;
+  font-size: 20px;
 }
 
-.navbar-brand{
-    color: var(--white) !important
+.navbar-brand {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center !important;
+  color: var(--white) !important;
+  margin-left: 40px;
 }
 
-.navbar-brand:hover{
-    color: var(--green-tint) !important;
+.navbar-brand:hover {
+  color: var(--green-tint) !important;
 }
 
-.nav-links .nav-link{
-    color: var(--white) !important;
+.nav-link {
+  position: relative;
 }
 
-.nav-links .nav-link:hover{
-    color: var(--green-tint) !important;
+.nav-links .nav-link {
+  color: var(--white) !important;
+  position: relative;
+}
+
+.nav-links .nav-link::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background: var(--green-tint);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.3s ease;
+}
+
+.nav-links .nav-link:hover {
+  color: var(--green-tint) !important;
+}
+
+.nav-links .nav-link:hover::after {
+  width: 50%;
 }
 
 /* Target all icons */
-.social-icons .MuiSvgIcon-root:hover{
-    color: var(--green-tint) !important;
+.social-icons .MuiSvgIcon-root:hover {
+  color: var(--green-tint) !important;
+}
+
+.social-icons {
+  margin-right: 50px;
+}
+
+.navbar-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.navbar-name{
+    margin-right: 20px;
 }

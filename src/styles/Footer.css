@@ -1,0 +1,13 @@
+footer {
+  width: 100%;
+  margin-top: 40px;
+  box-sizing: border-box;
+  padding: 150px !important;
+  background-color: var(--light-dark-blue);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+

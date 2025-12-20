@@ -1,0 +1,97 @@
+.education-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 28px;
+  background: var(--light-dark-blue);
+  /* border: 1.5px solid var(--green-tint, #7fffd4); */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.education-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.school-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+}
+
+.education-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.education-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1px;
+}
+
+.education-subtitle {
+  font-size: 0.98rem;
+  color: var(--green-tint, #00e6a2);
+  margin-bottom: 3px;
+}
+
+.relevant-courses {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.relevant-courses li {
+  font-size: 0.97rem;
+  color: #333;
+  opacity: 0.92;
+  margin-bottom: 4px;
+  padding-left: 0;
+  background: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+}
+
+.relevant-courses li::before {
+  content: "▹   ";
+  color: var(--green-tint, #00e6a2);
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+
+h2 {
+  font-family: "Lexend", sans-serif;
+  font-size: 33px;
+}
+
+h3{
+    font-family: "Lexend", sans-serif;
+    font-size: 24px;
+    color: var(--light-slate);
+}
+.education-date{
+    font-family: "Lexend", sans-serif;
+    font-size: 20px;
+}
+h4{
+    font-family: "Lexend", sans-serif;
+    font-size: 18px;
+    
+}
+
+.relevant-courses li{
+    color: var(--light-slate);
+    font-family: "Lexend", sans-serif;
+}

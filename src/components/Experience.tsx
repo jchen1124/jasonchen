@@ -5,7 +5,7 @@ const Experience = () => {
     return (
         <div id="experience">
             <div className="section-head">
-                <span className="section-title">/ experience</span>
+                <span className="section-title">/ Experience</span>
             </div>
             <JobLists/>
         </div>

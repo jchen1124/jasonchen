@@ -2,21 +2,24 @@ import "../styles/About.css";
 import FadeIn from "./FadeIn";
 import jasonImage from "../assets/jason2.jpg";
 
-const techstack = ["Python", "React.js", "C++", "JavaScript"];
+const techstack = ["Python", "React", "Node.js", "JavaScript"];
 
 const About = () => {
   return (
     <div id="about">
       <div className="section-head">
-        <span className="section-title">/ about me</span>
+        <span className="section-title">/ About Me</span>
       </div>
       <div className="about-content">
         <div className="about-description">
           <FadeIn delay={100}>
             <p>
-              I am currently a Junior at the University of Maryland, Baltimore
-              County (UMBC), pursuing a Bachelor's degree in Computer Science
-              and Math. Outside of academics, I enjoy lifting weights, playing
+              I'm passionate about creating a variety of projects ranging from
+              web development to data analysis, studying, exploring new
+              technologies, and continuously improving my skills.
+            </p>
+            <p>
+              Outside of academics, I enjoy lifting weights, playing
               basketball, and hiking
             </p>
 
