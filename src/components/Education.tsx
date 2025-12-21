@@ -1,4 +1,5 @@
 import Education_Card from "./Education_Card";
+import "../styles/Education.css";
 
 const Education = () => {
   return (

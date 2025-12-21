@@ -50,14 +50,14 @@ const JobLists = () => {
         "Converted and optimized multi-class YOLO models for embedded deployment (TFLite + ModalAI), lowering inference latency by 40% while maintaining real-time performance",
       ],
     },
-    "Northrop Grumman": {
-      title: "Software Engineering Intern @",
-      duration: "June 2024 - August 2024",
-      desc: [
-        "Developed automated testing scripts using Python and Selenium, reducing manual testing time by 30%",
-        "Collaborated with cross-functional teams to design and implement new features for internal tools, enhancing user experience",
-      ],
-    },
+    // "Northrop Grumman": {
+    //   title: "Software Engineering Intern @",
+    //   duration: "June 2024 - August 2024",
+    //   desc: [
+    //     "Developed automated testing scripts using Python and Selenium, reducing manual testing time by 30%",
+    //     "Collaborated with cross-functional teams to design and implement new features for internal tools, enhancing user experience",
+    //   ],
+    // },
   };
 
   const [value, setValue] = useState(0);

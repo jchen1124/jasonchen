@@ -1,6 +1,6 @@
 import "../styles/About.css";
 import FadeIn from "./FadeIn";
-import jasonImage from "../assets/jason2.jpg";
+import jasonImage from "../assets/basketball.jpg";
 
 const techstack = ["Python", "React", "Node.js", "JavaScript"];
 
