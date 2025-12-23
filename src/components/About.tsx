@@ -14,8 +14,7 @@ const About = () => {
         <div className="about-description">
           <FadeIn delay={100}>
             <p>
-              I'm passionate about creating a variety of projects ranging from
-              web development to data analysis, studying, exploring new
+              I'm passionate about creating a variety of projects, studying, exploring new
               technologies, and continuously improving my skills.
             </p>
             <p>
