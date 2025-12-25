@@ -20,7 +20,7 @@ const Projects = () => {
 
 // Fetch projects from the backend API
   useEffect(() => {
-    fetch("http://localhost:3002/api/projects")
+    fetch("http://3.144.150.247:3002/api/projects")
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);

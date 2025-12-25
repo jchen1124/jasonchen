@@ -1,5 +1,5 @@
 import Typist from "react-typist-component";
-import GeometricScene from "./Geometric";
+// import GeometricScene from "./Geometric";
 import FadeIn from "./FadeIn";
 import jasonImage from "../assets/jason2.jpg";
 import "../styles/intro.css";
