@@ -1,5 +1,5 @@
 import type React from "react";
-import "../styles/fadein.css";
+import "../styles/FadeIn.css";
 import { useEffect, useRef, useState } from "react";
 
 interface FadeInProps {
