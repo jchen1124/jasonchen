@@ -7,7 +7,17 @@ import Project from "./models/projectModel.js";
 dotenv.config();
 
 const app = express();
-app.use(cors()); //allows different servers to communicate with each other
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // for local development
+      "https://jasonchen-sable.vercel.app/", // Vercel URL
+      "https://jason-chen.dev", 
+      "https://www.jason-chen.dev", 
+    ],
+    credentials: true,
+  })
+); //allows different servers to communicate with each other
 app.use(express.json()); //allows us to parse JSON data in the request body
 const PORT = 3002;
 
