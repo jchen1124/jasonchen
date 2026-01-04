@@ -13,7 +13,6 @@ const PORT = 3002;
 
 console.log("🔥 server.js is running!");
 
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -34,7 +33,6 @@ app.get("/api/projects", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
