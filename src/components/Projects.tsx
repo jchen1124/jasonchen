@@ -20,7 +20,7 @@ const Projects = () => {
 
 // Fetch projects from the backend API
   useEffect(() => {
-    fetch("http://3.144.150.247:3002/api/projects")
+    fetch(`${import.meta.env.VITE_API_URL}/api/projects`)
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
