@@ -1,7 +1,7 @@
 // import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import "../styles/Card.css";
+import "../styles/card.css";
 
 interface ProjectType {
   title: string;

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import ProjectCard from "./Card"
+import ProjectCard from "./Card";
 import FadeIn from "./FadeIn";
 import "../styles/Projects.css";
-
 
 interface Project {
   _id: string;
@@ -13,12 +12,10 @@ interface Project {
   image: string;
 }
 
-
 const Projects = () => {
-
   const [projects, setProjects] = useState<Project[]>([]);
 
-// Fetch projects from the backend API
+  // Fetch projects from the backend API
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/projects`)
       .then((res) => res.json())
@@ -30,13 +27,13 @@ const Projects = () => {
       <div className="section-head">
         <span className="section-title">/ Projects</span>
       </div>
-        <FadeIn delay={100}>
+      <FadeIn delay={100}>
         <div className="projects-list">
-            {projects.map((project) =>(
-                <ProjectCard key={project._id.toString()} project={project}/>
-            ))}
+          {projects.map((project) => (
+            <ProjectCard key={project._id.toString()} project={project} />
+          ))}
         </div>
-        </FadeIn>
+      </FadeIn>
     </div>
   );
 };
