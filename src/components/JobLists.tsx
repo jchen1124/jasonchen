@@ -45,19 +45,19 @@ const JobLists = () => {
       title: "Machine Learning Intern @",
       duration: "June 2025 - August 2025",
       desc: [
-        "Engineered multi-dataset training strategy (birds, drones, helicopters, planes), harmonizing class schemas and boosting cross-domain generalization by 22%.",
-        "Developed modular training and conversion scripts (dataset merging, JSON-to-YOLO fixes, automated cleaning), enabling fully reproducible experiments and rapid iteration.",
-        "Converted and optimized multi-class YOLO models for embedded deployment (TFLite + ModalAI), lowering inference latency by 40% while maintaining real-time performance",
+        "Optimized YOLOv8 models for the detection and classification of airborne objects, achieving an 18% increase in detection accuracy and a 12% reduction in false positives compared to baseline performance.",
+        "Engineered automated preprocessing and annotation conversion pipelines (COCO to YOLO), which standardized 50K+ aerial images and reduced manual labeling errors by 30%",
+        "Deployed lightweight computer vision models to airborne sensor platforms, ensuring 95% real-time reliability for high-speed data processing across electro-optical and event-based cameras.",
+        "Streamlined data ingestion workflows by developing Python-based scripts to handle multi-source imagery, improving the efficiency of the model training lifecycle."
       ],
     },
-    // "Northrop Grumman": {
-    //   title: "Software Engineering Intern @",
-    //   duration: "June 2024 - August 2024",
-    //   desc: [
-    //     "Developed automated testing scripts using Python and Selenium, reducing manual testing time by 30%",
-    //     "Collaborated with cross-functional teams to design and implement new features for internal tools, enhancing user experience",
-    //   ],
-    // },
+    " Platinum Business Services LLC": {
+      title: "Data Artificial Intelligence Intern @",
+      duration: "February 2026 - May 2026",
+      desc: [
+        "***** STARTING SPRING 2026 *****",
+      ],
+    },
   };
 
   const [value, setValue] = useState(0);
