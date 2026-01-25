@@ -10,10 +10,12 @@ interface Project {
   tech: string[];
   projectURL: string;
   image: string;
+  link: string
 }
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+
 
   // Fetch projects from the backend API
   useEffect(() => {

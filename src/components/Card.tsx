@@ -1,6 +1,7 @@
 // import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import "../styles/card.css";
 
 interface ProjectType {
@@ -9,6 +10,7 @@ interface ProjectType {
   tech: string[];
   projectURL: string;
   image: string;
+  link: string
 }
 
 interface CardProps {
@@ -35,6 +37,17 @@ const ProjectCard = ({ project }: CardProps) => {
         >
           <GitHubIcon fontSize="medium" style={{ color: "#64ffda" }} />
         </a>
+
+       {project.link &&(
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
+        >
+          <ExitToAppIcon fontSize="medium" style={{ color: "#64ffda", marginLeft: '10px' }} />
+        </a>
+       )}
       </Card.Body>
     </Card>
   );

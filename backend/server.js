@@ -10,7 +10,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // for local development
+      "http://localhost:5174", // for local development
       "https://jasonchen-sable.vercel.app", // Vercel URL
       "https://jason-chen.dev", 
       "https://www.jason-chen.dev", 
@@ -32,10 +32,10 @@ mongoose
 
 //GET request to fetch all projects
 app.get("/api/projects", async (req, res) => {
-  console.log("Received request for /api/projects");
+  // console.log("Received request for /api/projects");
   try {
-    console.log("Connected DB name:", mongoose.connection.db.databaseName);
-    const projects = await Project.find();
+    // console.log("Connected DB name:", mongoose.connection.db.databaseName);
+    const projects = await Project.find().sort({ order: 1 });
     console.log("Found projects:", projects);
     res.json(projects);
   } catch (err) {
