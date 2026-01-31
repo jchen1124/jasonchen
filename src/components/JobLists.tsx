@@ -48,15 +48,13 @@ const JobLists = () => {
         "Optimized YOLOv8 models for the detection and classification of airborne objects, achieving an 18% increase in detection accuracy and a 12% reduction in false positives compared to baseline performance.",
         "Engineered automated preprocessing and annotation conversion pipelines (COCO to YOLO), which standardized 50K+ aerial images and reduced manual labeling errors by 30%",
         "Deployed lightweight computer vision models to airborne sensor platforms, ensuring 95% real-time reliability for high-speed data processing across electro-optical and event-based cameras.",
-        "Streamlined data ingestion workflows by developing Python-based scripts to handle multi-source imagery, improving the efficiency of the model training lifecycle."
+        "Streamlined data ingestion workflows by developing Python-based scripts to handle multi-source imagery, improving the efficiency of the model training lifecycle.",
       ],
     },
-    " Platinum Business Services LLC": {
+    "Platinum Business Services LLC": {
       title: "Data Artificial Intelligence Intern @",
       duration: "February 2026 - May 2026",
-      desc: [
-        "***** STARTING SPRING 2026 *****",
-      ],
+      desc: ["***** STARTING SPRING 2026 *****"],
     },
   };
 
@@ -86,7 +84,13 @@ const JobLists = () => {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: "divider" }}
+        sx={{
+          borderRight: 1,
+          borderColor: "divider",
+          minWidth: 250,
+          width: 250,
+          flexShrink: 0,
+        }}
       >
         {jobs.map((job, index) => (
           <Tab

@@ -1,5 +1,8 @@
 .job-list-container {
   background-color: var(--light-blue) !important;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
 }
 
 .job-list-container .MuiTabs-indicator {
@@ -56,36 +59,58 @@
   color: var(--green-tint);
 }
 
+/* TabPanel content container */
+[role="tabpanel"] {
+  flex-grow: 1;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Mobile Responsive - 600px and below */
 @media only screen and (max-width: 600px) {
   .job-list-container {
+    flex-direction: column;
+    min-height: auto;
     padding: 0 20px;
   }
 
   .job-list-container .MuiTabs-root {
     min-height: auto;
+    border-right: none !important;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .job-list-container .MuiTabs-root .MuiTabs-scroller {
+    overflow-x: auto !important;
   }
 
   .job-list-container .MuiTab-root {
-    font-size: 14px;
-    padding: 8px 12px !important;
+    font-size: 12px;
+    padding: 8px 10px !important;
     min-width: auto;
+    white-space: nowrap;
+  }
+
+  [role="tabpanel"] {
+    min-height: auto;
+    padding: 20px 0 !important;
   }
 
   .job-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .company-name {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .job-duration {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .job-desc-list {
-    margin-top: 12px;
+    margin-top: 10px;
     padding-left: 10px;
   }
 
