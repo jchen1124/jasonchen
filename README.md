@@ -1,6 +1,6 @@
 # jason-chen.dev - v1
 
-A modern, responsive portfolio web app for [Jason Chen Portfolio](https://jason-chen.dev).
+A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
 
 ## Getting Started
 
