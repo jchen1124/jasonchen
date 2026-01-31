@@ -51,8 +51,6 @@
 
 .about-image img:hover {
   transform: scale(1.05);
-
-
 }
 
 @media (min-width: 800px) {

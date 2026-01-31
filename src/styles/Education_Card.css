@@ -9,7 +9,9 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   margin-bottom: 24px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .education-card:hover {
@@ -76,24 +78,23 @@ h2 {
   font-size: 33px;
 }
 
-h3{
-    font-family: "Lexend", sans-serif;
-    font-size: 24px;
-    color: var(--light-slate);
+h3 {
+  font-family: "Lexend", sans-serif;
+  font-size: 24px;
+  color: var(--light-slate);
 }
-.education-date{
-    font-family: "Lexend", sans-serif;
-    font-size: 20px;
+.education-date {
+  font-family: "Lexend", sans-serif;
+  font-size: 20px;
 }
-h4{
-    font-family: "Lexend", sans-serif;
-    font-size: 18px;
-    
+h4 {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
 }
 
-.relevant-courses li{
-    color: var(--light-slate);
-    font-family: "Lexend", sans-serif;
+.relevant-courses li {
+  color: var(--light-slate);
+  font-family: "Lexend", sans-serif;
 }
 
 /* Mobile Responsive - 600px and below */

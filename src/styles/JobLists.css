@@ -1,9 +1,9 @@
-.job-list-container{
-    background-color: var(--light-blue) !important;
+.job-list-container {
+  background-color: var(--light-blue) !important;
 }
 
-.job-list-container .MuiTabs-indicator{
-    background-color: var(--green-tint) !important;
+.job-list-container .MuiTabs-indicator {
+  background-color: var(--green-tint) !important;
 }
 
 .job-list-container .MuiTab-root {
@@ -15,45 +15,45 @@
   color: var(--green-tint);
 }
 
-.job-title{
-    font-family: "Lexend", sans-serif;
-    font-size: 24px;
-    color: var(--light-slate);
-    font-weight: bolder;
+.job-title {
+  font-family: "Lexend", sans-serif;
+  font-size: 24px;
+  color: var(--light-slate);
+  font-weight: bolder;
 }
 
-.company-name{
-    font-family: "Lexend", sans-serif;
-    font-size: 24px;
-    color: var(--green-tint);
-    font-weight: bolder;
+.company-name {
+  font-family: "Lexend", sans-serif;
+  font-size: 24px;
+  color: var(--green-tint);
+  font-weight: bolder;
 }
 
-.job-duration{
-    font-family: "Lexend", sans-serif;
-    font-size: 18px;
-    color: var(--light-slate);
-    font-weight: 200;
+.job-duration {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  color: var(--light-slate);
+  font-weight: 200;
 }
 
-.job-desc-list{
-    margin-top: 15px;
-    padding-left: 20px;
-    list-style-type: none;
+.job-desc-list {
+  margin-top: 15px;
+  padding-left: 20px;
+  list-style-type: none;
 }
 
-.job-desc-list .job-desc-item{
-    margin-bottom: 15px;
-    padding-left: 10px;
-    text-indent: -15px;
-    font-family: "Lexend", sans-serif;
-    font-size: 16px;
-    color: var(--light-slate);
+.job-desc-list .job-desc-item {
+  margin-bottom: 15px;
+  padding-left: 10px;
+  text-indent: -15px;
+  font-family: "Lexend", sans-serif;
+  font-size: 16px;
+  color: var(--light-slate);
 }
 
 .job-desc-list .job-desc-item::before {
-    content: "▹   ";
-    color: var(--green-tint);
+  content: "▹   ";
+  color: var(--green-tint);
 }
 
 /* Mobile Responsive - 600px and below */
