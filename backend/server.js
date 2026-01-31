@@ -10,7 +10,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5174", // for local development
+      "http://localhost:5173", // for local development
       "https://jasonchen-sable.vercel.app", // Vercel URL
       "https://jason-chen.dev", 
       "https://www.jason-chen.dev", 

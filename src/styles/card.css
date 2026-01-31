@@ -15,3 +15,13 @@
 .card:hover img {
   opacity: 0.8;
 }
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  .card {
+    border-radius: 8px;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+}

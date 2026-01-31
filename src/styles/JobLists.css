@@ -55,3 +55,42 @@
     content: "▹   ";
     color: var(--green-tint);
 }
+
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  .job-list-container {
+    padding: 0 20px;
+  }
+
+  .job-list-container .MuiTabs-root {
+    min-height: auto;
+  }
+
+  .job-list-container .MuiTab-root {
+    font-size: 14px;
+    padding: 8px 12px !important;
+    min-width: auto;
+  }
+
+  .job-title {
+    font-size: 18px;
+  }
+
+  .company-name {
+    font-size: 18px;
+  }
+
+  .job-duration {
+    font-size: 14px;
+  }
+
+  .job-desc-list {
+    margin-top: 12px;
+    padding-left: 10px;
+  }
+
+  .job-desc-list .job-desc-item {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}

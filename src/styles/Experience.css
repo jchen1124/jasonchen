@@ -9,3 +9,12 @@
 /* .section-head{
     padding-bottom: 0px;
 } */
+
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  #experience {
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

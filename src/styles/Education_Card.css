@@ -95,3 +95,52 @@ h4{
     color: var(--light-slate);
     font-family: "Lexend", sans-serif;
 }
+
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  .education-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .school-logo img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .education-details {
+    gap: 2px;
+  }
+
+  .education-title {
+    font-size: 1rem;
+  }
+
+  .education-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .relevant-courses li {
+    font-size: 0.85rem;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  .education-date {
+    font-size: 16px;
+  }
+}

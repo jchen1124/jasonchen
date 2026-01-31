@@ -93,4 +93,50 @@
   z-index: 2;
 }
 
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  #intro {
+    padding: 0 20px;
+    font-size: 40px;
+    min-height: 80vh;
+    justify-content: flex-start;
+    padding-top: 100px;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro-text {
+    width: 100%;
+  }
+
+  .intro-name {
+    font-size: 40px;
+  }
+
+  .cursor {
+    font-size: 40px;
+    margin-left: -10px;
+  }
+
+  .intro-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .intro-image img {
+    max-width: 250px;
+    margin-left: 0;
+  }
+
+  .intro-description {
+    font-size: 16px;
+  }
+}
+
 

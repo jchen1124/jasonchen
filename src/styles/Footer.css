@@ -11,3 +11,11 @@ footer {
   min-height: 150px;
 }
 
+/* Mobile Responsive - 600px and below */
+@media only screen and (max-width: 600px) {
+  footer {
+    padding: 40px 20px !important;
+    min-height: auto;
+    margin-top: 30px;
+  }
+}
