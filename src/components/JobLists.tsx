@@ -54,7 +54,15 @@ const JobLists = () => {
     "Platinum Business Services LLC": {
       title: "Data Artificial Intelligence Intern @",
       duration: "February 2026 - May 2026",
-      desc: ["***** STARTING SPRING 2026 *****"],
+      desc: ["Researched and prototyped AI-driven simulation approaches for modeling complex drug diffusion and biological interaction systems.",
+        "Investigated surrogate neural network and digital twin architectures to improve scalability and reduce computational overhead in large-scale simulation environments.",
+        "Architecting a bidirectional data pipeline that integrates genomic resistance models with active simulations, enabling automated, real-time feedback loops and dynamic state management."
+      ],
+    },
+    "DUIT": {
+      title: "AI Engineer Intern @",
+      duration: "June 2026 - Present",
+      desc: ["**** STARTING SOON ******"],
     },
   };
 
