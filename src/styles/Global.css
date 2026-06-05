@@ -7,4 +7,11 @@
     --light-slate:#ccd6f6;
     --white: #F4F4F4;
     --green-tint: #64ffda;
+    --page-gutter: 300px;
+}
+
+@media screen and (max-width: 900px) {
+    :root {
+        --page-gutter: 24px;
+    }
 }

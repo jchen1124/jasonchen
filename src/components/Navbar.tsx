@@ -10,7 +10,7 @@ import jasonLogo from "../assets/jason_logo.jpg";
 
 const NavBar = () => {
   return (
-    <Navbar fixed="top" className="navbar-brand">
+    <Navbar fixed="top" className="site-navbar">
       <Container>
         <Navbar.Brand href="#">
           <img

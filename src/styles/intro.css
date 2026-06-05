@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: flex-start;
   /* text-align: left; */
-  padding: 0 350px;
+  padding: 0 var(--page-gutter);
   background-color: var(--light-blue);
   font-size: 80px;
   color: var(--white);
@@ -21,7 +21,7 @@
   gap: 100px;
   position: relative;
   z-index: 2;
-  padding-left: 10px;
+  padding-left: 0;
 }
 
 /* Target only the tsparticles canvas, not all canvas elements */

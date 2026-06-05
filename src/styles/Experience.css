@@ -1,7 +1,7 @@
 #experience {
   padding-top: 150px;
-  margin: auto;
-  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
   /* max-height: 50vh; */
 }
 
@@ -13,7 +13,5 @@
 @media only screen and (max-width: 600px) {
   #experience {
     padding-top: 80px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }

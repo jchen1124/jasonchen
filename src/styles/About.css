@@ -1,6 +1,6 @@
 #about {
-  margin: auto;
-  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
   min-height: 50vh;
 }
 
@@ -62,7 +62,7 @@
 /* Mobile Responsive - 600px and below */
 @media only screen and (max-width: 600px) {
   #about {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .about-content {

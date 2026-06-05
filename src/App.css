@@ -21,8 +21,8 @@ textarea {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding-left: 370px;
-  padding-right: 370px;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
 }
 
 body {
@@ -50,7 +50,8 @@ body {
   }
 
   #content {
-    padding: 10px 10px;
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
     width: 100%;
   }
 }
