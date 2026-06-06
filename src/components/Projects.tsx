@@ -15,13 +15,30 @@ interface Project {
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [error, setError] = useState("");
 
 
   // Fetch projects from the backend API
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/projects`)
-      .then((res) => res.json())
-      .then((data) => setProjects(data));
+    const apiUrl =
+      import.meta.env.VITE_API_URL ||
+      (import.meta.env.DEV ? "http://localhost:3002" : "");
+
+    fetch(`${apiUrl}/api/projects`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Projects request failed with status ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProjects(data);
+        setError("");
+      })
+      .catch((err) => {
+        console.error("Error fetching projects:", err);
+        setError("Projects could not load right now.");
+      });
   }, []);
 
   return (
@@ -31,6 +48,7 @@ const Projects = () => {
       </div>
       <FadeIn delay={100}>
         <div className="projects-list">
+          {error && <p className="projects-error">{error}</p>}
           {projects.map((project) => (
             <ProjectCard key={project._id.toString()} project={project} />
           ))}

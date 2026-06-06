@@ -11,6 +11,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // for local development
+      "http://127.0.0.1:5173", // for local development through explicit loopback
       "https://jasonchen-sable.vercel.app", // Vercel URL
       "https://jason-chen.dev", 
       "https://www.jason-chen.dev", 

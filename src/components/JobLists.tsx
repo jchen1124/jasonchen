@@ -1,7 +1,6 @@
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import "../styles/JobLists.css";
@@ -25,7 +24,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <div className="job-panel-content">{children}</div>
         </Box>
       )}
     </div>
