@@ -11,24 +11,29 @@
 }
 
 .job-list-container .MuiTabs-indicator {
-  background-color: var(--green-tint) !important;
+  display: none;
+}
+
+.job-list-container .MuiTouchRipple-root {
+  display: none;
 }
 
 .job-list-container .MuiTab-root {
   color: var(--light-slate);
   font-weight: bolder;
-  transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .job-list-container .MuiTab-root.Mui-selected {
   color: var(--green-tint);
   background-color: rgba(100, 255, 218, 0.08);
+  box-shadow: inset 4px 0 0 var(--green-tint);
 }
 
 .job-list-container .MuiTab-root:hover {
   color: var(--white);
   background-color: rgba(244, 244, 244, 0.06);
-  transform: translateX(4px);
 }
 
 .job-title {
@@ -78,12 +83,15 @@
   color: var(--green-tint);
 }
 
-/* TabPanel content container */
-[role="tabpanel"] {
+.job-list-container [role="tabpanel"] {
   flex-grow: 1;
   min-height: 300px;
   display: flex;
   flex-direction: column;
+}
+
+.job-list-container [role="tabpanel"][hidden] {
+  display: none;
 }
 
 /* Mobile Responsive - 600px and below */
@@ -110,7 +118,7 @@
     white-space: nowrap;
   }
 
-  [role="tabpanel"] {
+  .job-list-container [role="tabpanel"] {
     min-height: auto;
     padding: 20px 0 !important;
   }

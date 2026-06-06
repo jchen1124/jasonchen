@@ -73,7 +73,6 @@ const JobLists = () => {
   };
 
   const jobs = Object.entries(Experience_data);
-  console.log(jobs);
 
   return (
     <Box
@@ -105,6 +104,7 @@ const JobLists = () => {
             className="company-tab"
             label={job[0]}
             key={index}
+            disableRipple
             {...a11yProps(index)}
           ></Tab>
         ))}
