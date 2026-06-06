@@ -7,6 +7,11 @@
     --light-slate:#ccd6f6;
     --white: #F4F4F4;
     --green-tint: #64ffda;
+    --blue-shadow: #43627f;
+    --panel-blue: rgba(12, 43, 78, 0.44);
+    --panel-blue-strong: rgba(12, 43, 78, 0.68);
+    --line-soft: rgba(244, 244, 244, 0.16);
+    --mint-soft: rgba(100, 255, 218, 0.24);
     --page-gutter: 300px;
 }
 

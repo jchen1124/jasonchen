@@ -15,6 +15,19 @@
   overflow: hidden; /* Keeps particles contained within intro section */
 }
 
+#intro::before {
+  content: "";
+  position: absolute;
+  inset: 90px var(--page-gutter) 90px var(--page-gutter);
+  border: 1px solid rgba(244, 244, 244, 0.08);
+  background:
+    linear-gradient(135deg, rgba(12, 43, 78, 0.16), rgba(100, 255, 218, 0.06)),
+    linear-gradient(90deg, transparent 0%, rgba(244, 244, 244, 0.04) 50%, transparent 100%);
+  clip-path: polygon(0 8%, 95% 0, 100% 90%, 5% 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .intro-content {
   display: flex;
   flex-direction: row;
@@ -38,6 +51,7 @@
   color: var(--green-tint);
   font-family: "Alfa Slab One", serif;
   font-weight: bolder;
+  text-shadow: 0 0 28px rgba(100, 255, 218, 0.3);
 }
 
 .cursor {
@@ -46,14 +60,40 @@
   margin-left: -19px;
 }
 
+.intro-image {
+  position: relative;
+}
+
+.intro-image::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 2px solid var(--green-tint);
+  border-radius: 10px;
+  opacity: 0.55;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
 .intro-image img {
+  position: relative;
+  z-index: 1;
   max-width: 300px;
   height: auto;
   border-radius: 10px;
   margin-left: 30px;
-  box-shadow: 6px 13px 23px -5px rgba(0, 0, 0, 0.46);
-  border: none;
-  transition: all 0.4s ease;
+  box-shadow: 0 24px 55px rgba(12, 43, 78, 0.38);
+  border: 1px solid rgba(244, 244, 244, 0.18);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  animation: heroImageFloat 6s ease-in-out infinite;
+}
+
+.intro-image:hover::before {
+  opacity: 0.9;
+  transform: translate(6px, -6px);
+}
+
+.intro-image:hover img {
+  filter: saturate(1.15) contrast(1.04);
 }
 
 .intro-text {
@@ -75,6 +115,17 @@
   font-family: "Lexend", sans-serif;
   max-width: none;
   width: 100%;
+  text-shadow: 0 10px 28px rgba(12, 43, 78, 0.28);
+}
+
+@keyframes heroImageFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Make sure particles canvas is behind content */
@@ -101,6 +152,10 @@
     min-height: 80vh;
     justify-content: flex-start;
     padding-top: 100px;
+  }
+
+  #intro::before {
+    inset: 84px 16px 42px 16px;
   }
 
   .intro-content {

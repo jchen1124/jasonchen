@@ -6,6 +6,7 @@ html {
 html,
 body {
   cursor: none;
+  min-height: 100%;
   
 }
 
@@ -23,11 +24,29 @@ textarea {
   box-sizing: border-box;
   padding-left: var(--page-gutter);
   padding-right: var(--page-gutter);
+  position: relative;
 }
 
 body {
-  background-color: var(--light-blue);
+  background:
+    linear-gradient(135deg, rgba(12, 43, 78, 0.28) 0%, rgba(110, 143, 181, 0) 34%),
+    linear-gradient(225deg, rgba(100, 255, 218, 0.12) 0%, rgba(110, 143, 181, 0) 30%),
+    linear-gradient(180deg, var(--light-blue) 0%, #6688ab 48%, #5f7fa0 100%);
+  color: var(--white);
   
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(244, 244, 244, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 244, 244, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
 .section-title {
@@ -40,7 +59,55 @@ body {
 }
 
 .section-head {
+  display: flex;
+  align-items: center;
+  gap: 22px;
   padding-bottom: 50px;
+}
+
+.section-head::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  max-width: 260px;
+  background: linear-gradient(90deg, var(--green-tint), rgba(244, 244, 244, 0));
+  transform-origin: left;
+  animation: sectionLineIn 900ms ease both;
+}
+
+#about,
+#education,
+#experience,
+#projects {
+  position: relative;
+}
+
+#about::before,
+#education::before,
+#experience::before,
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 170px;
+  height: 120px;
+  border-top: 1px solid var(--line-soft);
+  border-right: 1px solid var(--line-soft);
+  transform: skewX(-14deg);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+@keyframes sectionLineIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -53,5 +120,21 @@ body {
     padding-left: var(--page-gutter);
     padding-right: var(--page-gutter);
     width: 100%;
+  }
+
+  .section-head {
+    gap: 14px;
+    padding-bottom: 32px;
+  }
+
+  .section-head::after {
+    max-width: none;
+  }
+
+  #about::before,
+  #education::before,
+  #experience::before,
+  #projects::before {
+    display: none;
   }
 }

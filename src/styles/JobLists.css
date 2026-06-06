@@ -1,8 +1,13 @@
 .job-list-container {
-  background-color: var(--light-blue) !important;
+  background:
+    linear-gradient(135deg, rgba(12, 43, 78, 0.64), rgba(79, 106, 137, 0.62)) !important;
   min-height: 500px;
   display: flex;
   flex-direction: row;
+  border: 1px solid rgba(244, 244, 244, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(12, 43, 78, 0.22);
+  overflow: hidden;
 }
 
 .job-list-container .MuiTabs-indicator {
@@ -12,10 +17,18 @@
 .job-list-container .MuiTab-root {
   color: var(--light-slate);
   font-weight: bolder;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
 .job-list-container .MuiTab-root.Mui-selected {
   color: var(--green-tint);
+  background-color: rgba(100, 255, 218, 0.08);
+}
+
+.job-list-container .MuiTab-root:hover {
+  color: var(--white);
+  background-color: rgba(244, 244, 244, 0.06);
+  transform: translateX(4px);
 }
 
 .job-title {
@@ -52,6 +65,12 @@
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   color: var(--light-slate);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.job-desc-list .job-desc-item:hover {
+  color: var(--white);
+  transform: translateX(4px);
 }
 
 .job-desc-list .job-desc-item::before {
@@ -72,7 +91,6 @@
   .job-list-container {
     flex-direction: column;
     min-height: auto;
-    padding: 0 20px;
   }
 
   .job-list-container .MuiTabs-root {

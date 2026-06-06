@@ -1,21 +1,38 @@
 .education-card {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
   padding: 20px 28px;
-  background: var(--light-dark-blue);
-  /* border: 1.5px solid var(--green-tint, #7fffd4); */
+  background:
+    linear-gradient(135deg, rgba(12, 43, 78, 0.66), rgba(79, 106, 137, 0.82)),
+    var(--light-dark-blue);
+  border: 1px solid rgba(244, 244, 244, 0.14);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 24px 60px rgba(12, 43, 78, 0.24);
   margin-bottom: 24px;
+  overflow: hidden;
   transition:
+    transform 0.25s ease,
     border-color 0.2s,
     box-shadow 0.2s;
 }
 
+.education-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-tint), rgba(100, 255, 218, 0));
+}
+
 .education-card:hover {
   transform: translateY(-4px) scale(1.01);
+  border-color: rgba(100, 255, 218, 0.45);
+  box-shadow: 0 28px 70px rgba(12, 43, 78, 0.32);
 }
 
 .school-logo img {
@@ -37,7 +54,7 @@
 .education-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #222;
+  color: var(--white);
   margin-bottom: 1px;
 }
 
@@ -86,6 +103,7 @@ h3 {
 .education-date {
   font-family: "Lexend", sans-serif;
   font-size: 20px;
+  color: var(--light-slate);
 }
 h4 {
   font-family: "Lexend", sans-serif;
