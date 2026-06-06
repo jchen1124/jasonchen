@@ -19,7 +19,7 @@ interface CardProps {
 
 const ProjectCard = ({ project }: CardProps) => {
   return (
-    <Card style={{ width: "330px" }}>
+    <Card>
       <Card.Img
         variant="top"
         src={`/assets/${project.image}`}

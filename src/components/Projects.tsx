@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProjectCard from "./Card";
+import FeaturedProject from "./FeaturedProject";
 import FadeIn from "./FadeIn";
 import "../styles/Projects.css";
 
@@ -13,9 +14,12 @@ interface Project {
   link: string
 }
 
+const featuredProjectTitles = new Set(["Geo Gallery"]);
+
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [error, setError] = useState("");
+  const [featuredIndex, setFeaturedIndex] = useState(0);
 
 
   // Fetch projects from the backend API
@@ -41,15 +45,45 @@ const Projects = () => {
       });
   }, []);
 
+  const featuredProjects = projects.filter((project) =>
+    featuredProjectTitles.has(project.title)
+  );
+  const standardProjects = projects.filter(
+    (project) => !featuredProjectTitles.has(project.title)
+  );
+  const activeFeaturedProject = featuredProjects[featuredIndex];
+
+  const showPreviousFeaturedProject = () => {
+    setFeaturedIndex((current) =>
+      current === 0 ? featuredProjects.length - 1 : current - 1
+    );
+  };
+
+  const showNextFeaturedProject = () => {
+    setFeaturedIndex((current) => (current + 1) % featuredProjects.length);
+  };
+
   return (
     <div id="projects">
       <div className="section-head">
         <span className="section-title">/ Projects</span>
       </div>
       <FadeIn delay={100}>
+        {activeFeaturedProject && (
+          <div className="featured-project-stage">
+            <FeaturedProject
+              project={activeFeaturedProject}
+              current={featuredIndex}
+              total={featuredProjects.length}
+              onPrevious={showPreviousFeaturedProject}
+              onNext={showNextFeaturedProject}
+            />
+          </div>
+        )}
+
         <div className="projects-list">
           {error && <p className="projects-error">{error}</p>}
-          {projects.map((project) => (
+          {standardProjects.map((project) => (
             <ProjectCard key={project._id.toString()} project={project} />
           ))}
         </div>
