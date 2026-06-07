@@ -103,6 +103,24 @@
   margin-right: 0;
 }
 
+.intro-typing-line {
+  min-height: 66px;
+  max-width: 620px;
+  margin-top: 16px;
+  color: var(--green-tint);
+  font-family: "Lexend", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-shadow: 0 8px 24px rgba(12, 43, 78, 0.25);
+}
+
+.typing-cursor {
+  margin-left: 2px;
+  color: var(--white);
+  animation: blink 1s step-end infinite;
+}
+
 @keyframes blink {
   50% {
     opacity: 0;
@@ -191,5 +209,11 @@
 
   .intro-description {
     font-size: 16px;
+  }
+
+  .intro-typing-line {
+    min-height: 72px;
+    margin-top: 12px;
+    font-size: 15px;
   }
 }

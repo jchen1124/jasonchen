@@ -103,12 +103,46 @@ const Intro = () => {
 
       <div className="intro-content">
         <div className="intro-text">
-          <Typist loop={false} cursor={<span className="cursor">|</span>}>
+          <Typist
+            loop={false}
+            hideCursorWhenDone
+            cursor={<span className="cursor">|</span>}
+          >
             <span className="intro-title">
               Hi, I'm <span className="intro-name">Jason</span>{" "}
             </span>
             <Typist.Delay ms={800} />
           </Typist>
+
+          <div className="intro-typing-line" aria-live="polite">
+            <Typist
+              loop
+              startDelay={1700}
+              typingDelay={42}
+              backspaceDelay={22}
+              cursor={<span className="typing-cursor">|</span>}
+            >
+              {"Aspiring Software Engineer"}
+              <Typist.Delay ms={1700} />
+              <Typist.Backspace count={26} />
+              <Typist.Delay ms={350} />
+              {"Always Creating • Always Building • Always Learning"}
+              <Typist.Delay ms={1700} />
+              <Typist.Backspace count={51} />
+              <Typist.Delay ms={350} />
+              {
+                "Experience with TypeScript, Python, Full-Stack Development, AI, and More"
+              }
+              <Typist.Delay ms={1700} />
+              <Typist.Backspace count={72} />
+              <Typist.Delay ms={350} />
+              {"Seeking Opportunities to Build Meaningful Technology"}
+              <Typist.Delay ms={1700} />
+              <Typist.Backspace count={52} />
+              <Typist.Delay ms={350} />
+            </Typist>
+          </div>
+
           <FadeIn>
             <div className="intro-description">
               Computer Science BS student with knowledge in Python, C++, React
