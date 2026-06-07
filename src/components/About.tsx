@@ -2,7 +2,7 @@ import "../styles/About.css";
 import FadeIn from "./FadeIn";
 import jasonImage from "../assets/basketball.jpg";
 
-const techstack = ["Python", "React", "Node.js", "JavaScript"];
+const techstack = ["Python", "React", "Node.js", "TypeScript"];
 
 const About = () => {
   return (
