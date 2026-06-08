@@ -145,7 +145,7 @@ const Intro = () => {
 
           <FadeIn>
             <div className="intro-description">
-              Computer Science BS student with knowledge in Python, C++, React
+              Computer Science BS student with knowledge in Python, TypeScript, Cloud, React
               and Node.js. Welcome to my personal portfolio! I am currently
               seeking for Software Engineering, Machine Learning, and Data
               Science Internships.
