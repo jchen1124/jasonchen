@@ -37,21 +37,21 @@
 }
 
 .job-title {
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 24px;
   color: var(--light-slate);
   font-weight: bolder;
 }
 
 .company-name {
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 24px;
   color: var(--green-tint);
   font-weight: bolder;
 }
 
 .job-duration {
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 18px;
   color: var(--light-slate);
   font-weight: 200;
@@ -67,7 +67,7 @@
   margin-bottom: 15px;
   padding-left: 10px;
   text-indent: -15px;
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 16px;
   color: var(--light-slate);
   transition: transform 0.2s ease, color 0.2s ease;

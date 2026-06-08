@@ -9,7 +9,7 @@
   max-width: none;
   width: 100%;
   /* padding-top: 50px; */
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 20px;
   color: var(--white);
   line-height: 1.6;

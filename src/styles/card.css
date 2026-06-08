@@ -5,7 +5,7 @@
     linear-gradient(180deg, rgba(29, 84, 108, 0.92), rgba(12, 43, 78, 0.86));
   color: white;
   overflow: hidden;
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   border: 1px solid rgba(244, 244, 244, 0.14);
   box-shadow: 0 18px 45px rgba(12, 43, 78, 0.18);
 }

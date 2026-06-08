@@ -3,7 +3,7 @@
   min-height: 90px !important;
   height: 90px !important;
   max-height: 90px !important;
-  font-family: "Lexend", sans-serif;
+  font-family: var(--font-main);
   font-size: 20px;
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(244, 244, 244, 0.12);

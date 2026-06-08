@@ -21,7 +21,7 @@
     background:
       linear-gradient(135deg, rgba(12, 43, 78, 0.94), rgba(29, 84, 108, 0.82));
     box-shadow: 0 28px 70px rgba(12, 43, 78, 0.3);
-    font-family: "Lexend", sans-serif;
+    font-family: var(--font-main);
 }
 
 .featured-project::after {
@@ -184,7 +184,7 @@
     border-radius: 8px;
     background: rgba(12, 43, 78, 0.36);
     color: var(--light-slate);
-    font-family: "Lexend", sans-serif;
+    font-family: var(--font-main);
 }
 
 @media only screen and (max-width: 1050px) {
