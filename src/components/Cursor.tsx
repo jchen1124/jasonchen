@@ -4,24 +4,54 @@ import "../styles/Cursor.css";
 const Cursor = () => {
   const outerRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
+  const trailRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const cursorOuter = outerRef.current;
     const cursorInner = innerRef.current;
+    const trailElements = trailRefs.current.filter(
+      (element): element is HTMLDivElement => element !== null
+    );
 
     if (!cursorOuter || !cursorInner) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      requestAnimationFrame(() => {
-        cursorOuter.style.left = `${e.clientX}px`;
-        cursorOuter.style.top = `${e.clientY}px`;
+    const pointer = { x: -100, y: -100 };
+    const trailPositions = trailElements.map(() => ({ x: -100, y: -100 }));
+    let trailAnimationFrame = 0;
 
-        cursorInner.style.left = `${e.clientX}px`;
-        cursorInner.style.top = `${e.clientY}px`;
+    const handleMouseMove = (e: MouseEvent) => {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+
+      cursorOuter.style.left = `${pointer.x}px`;
+      cursorOuter.style.top = `${pointer.y}px`;
+      cursorInner.style.left = `${pointer.x}px`;
+      cursorInner.style.top = `${pointer.y}px`;
+    };
+
+    const animateTrail = () => {
+      let targetX = pointer.x;
+      let targetY = pointer.y;
+
+      trailElements.forEach((element, index) => {
+        const position = trailPositions[index];
+        const ease = 0.42 - index * 0.045;
+
+        position.x += (targetX - position.x) * ease;
+        position.y += (targetY - position.y) * ease;
+
+        element.style.left = `${position.x}px`;
+        element.style.top = `${position.y}px`;
+
+        targetX = position.x;
+        targetY = position.y;
       });
+
+      trailAnimationFrame = requestAnimationFrame(animateTrail);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
+    trailAnimationFrame = requestAnimationFrame(animateTrail);
 
     const handleMouseEnter = () => {
       cursorOuter.style.transform = "translate(-50%, -50%) scale(1.5)";
@@ -54,6 +84,7 @@ const Cursor = () => {
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(trailAnimationFrame);
       clearTimeout(t1);
       clearTimeout(t2);
     };
@@ -61,6 +92,15 @@ const Cursor = () => {
 
   return (
     <>
+      {Array.from({ length: 4 }, (_, index) => (
+        <div
+          key={index}
+          ref={(element) => {
+            trailRefs.current[index] = element;
+          }}
+          className={`cursor-trail-dot cursor-trail-dot-${index + 1}`}
+        />
+      ))}
       <div ref={outerRef} className="cursor-outer" />
       <div ref={innerRef} className="cursor-inner" />
     </>
