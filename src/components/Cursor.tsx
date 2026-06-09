@@ -35,7 +35,7 @@ const Cursor = () => {
 
       trailElements.forEach((element, index) => {
         const position = trailPositions[index];
-        const ease = 0.42 - index * 0.045;
+        const ease = 0.34 - index * 0.035;
 
         position.x += (targetX - position.x) * ease;
         position.y += (targetY - position.y) * ease;
