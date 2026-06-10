@@ -16,7 +16,7 @@ const Education_Card = () => {
       <div className="education-details">
         <h2>University of Maryland, Baltimore County (UMBC)</h2>
         <h3>Computer Science and Mathematics</h3>
-        <h4 className = "education-date">August 2023 - May 2027 • GPA: 3.7</h4>
+        <h4 className = "education-date">2023 - 2027 • GPA: 3.7</h4>
         <ul className="relevant-courses">
           <h4>Relevant Courses:</h4>
           {relevantCoureses.map((course, index) => (
