@@ -1,7 +1,7 @@
 import umbcLogo from "../assets/umbc.jpg";
 import "../styles/Education_Card.css";
 
-const relevantCoureses = [
+const relevantCourses = [
   "Data Structures and Algorithms",
   "Intro to AI",
   "Database Systems",
@@ -16,15 +16,20 @@ const Education_Card = () => {
         <img src={umbcLogo} alt="UMBC Logo" />
       </div>
       <div className="education-details">
-        <h2>University of Maryland, Baltimore County (UMBC)</h2>
-        <h3>Computer Science and Mathematics</h3>
-        <h4 className = "education-date">2023 - 2027 • GPA: 3.7</h4>
-        <ul className="relevant-courses">
-          <h4>Relevant Courses:</h4>
-          {relevantCoureses.map((course, index) => (
-            <li key={index}>{course}</li>
+        <h2 className="education-school">
+          University of Maryland, Baltimore County (UMBC)
+        </h2>
+        <h3 className="education-major">Computer Science and Mathematics</h3>
+        <p className="education-date">2023 - 2027 • GPA: 3.7</p>
+
+        <div className="education-coursework">
+          <span className="education-coursework-label">Coursework</span>
+          <ul className="relevant-courses">
+          {relevantCourses.map((course) => (
+            <li key={course}>{course}</li>
           ))}
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   );
