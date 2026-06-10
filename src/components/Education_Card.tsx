@@ -4,6 +4,8 @@ import "../styles/Education_Card.css";
 const relevantCoureses = [
   "Data Structures and Algorithms",
   "Intro to AI",
+  "Database Systems",
+  "Software Development",
   "Object Oriented Programming",
 ];
 
