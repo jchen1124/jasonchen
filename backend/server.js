@@ -1,10 +1,15 @@
 import express from "express";
 import cors from "cors";
+import dns from "node:dns";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Project from "./models/projectModel.js";
 
 dotenv.config();
+
+if (dns.getServers().every((server) => server === "127.0.0.1" || server === "::1")) {
+  dns.setServers(["1.1.1.1", "8.8.8.8"]);
+}
 
 const app = express();
 const productionOrigins = new Set([
@@ -31,7 +36,7 @@ app.use(
   })
 ); //allows different servers to communicate with each other
 app.use(express.json({ limit: "20kb" })); //allows us to parse JSON data in the request body
-const PORT = 3002;
+const PORT = process.env.PORT || 3002;
 const contactAttempts = new Map();
 
 console.log("🔥 server.js is running!");
