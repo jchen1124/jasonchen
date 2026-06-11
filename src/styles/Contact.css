@@ -72,13 +72,29 @@
   gap: 16px;
 }
 
-.contact-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.contact-field {
+  position: relative;
+  display: block;
   color: var(--light-slate);
   font-size: 13px;
   font-weight: 600;
+}
+
+.contact-field > span {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  padding: 0 5px;
+  background: #173e68;
+  color: rgba(204, 214, 246, 0.7);
+  line-height: 1;
+  pointer-events: none;
+  transform: translate(-5px, -50%);
+  transform-origin: left center;
+  transition:
+    top 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contact-form input,
@@ -96,7 +112,7 @@
 }
 
 .contact-form input {
-  height: 48px;
+  height: 52px;
   padding: 0 14px;
 }
 
@@ -106,16 +122,28 @@
   resize: vertical;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(204, 214, 246, 0.58);
-}
-
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: rgba(100, 255, 218, 0.72);
   background: rgba(12, 43, 78, 0.62);
   box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+}
+
+.contact-field:focus-within > span,
+.contact-field > input:not(:placeholder-shown) + span {
+  top: 0;
+  color: var(--green-tint);
+  transform: translate(-5px, -50%) scale(0.88);
+}
+
+.contact-message-field > span {
+  top: 17px;
+  transform: translate(-5px, 0);
+}
+
+.contact-message-field:focus-within > span,
+.contact-message-field > textarea:not(:placeholder-shown) + span {
+  opacity: 0;
 }
 
 .contact-submit {

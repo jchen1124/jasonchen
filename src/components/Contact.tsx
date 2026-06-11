@@ -74,52 +74,52 @@ const Contact = () => {
             </label>
 
             <div className="contact-field-row">
-              <label>
-                <span>Name</span>
+              <label className="contact-field">
                 <input
                   type="text"
                   name="name"
                   autoComplete="name"
-                  placeholder="Your name"
+                  placeholder=" "
                   required
                 />
+                <span>Name</span>
               </label>
 
-              <label>
-                <span>Email</span>
+              <label className="contact-field">
                 <input
                   type="email"
                   name="email"
                   autoComplete="email"
-                  placeholder="you@example.com"
+                  placeholder=" "
                   required
                 />
+                <span>Email</span>
               </label>
             </div>
 
             <div className="subject-field-row">
-              <label>
-                <span>Subject</span>
+              <label className="contact-field">
                 <input
                   type="text"
                   name="subject"
                   autoComplete="off"
-                  placeholder="What would you like to discuss?"
+                  placeholder=" "
                   maxLength={150}
                   required
                 />
+                <span>Subject</span>
               </label>
             </div>
- 
-            <label>
-              <span>Message</span>
+
+            <label className="contact-field contact-message-field">
               <textarea
                 name="message"
                 rows={6}
-                placeholder="Tell me what you would like to build..."
+                placeholder=" "
                 maxLength={5000}
                 required
               />
+              <span>Message</span>
             </label>
 
             <button
