@@ -4,6 +4,7 @@ import About from "./components/About"
 import Projects from "./components/Projects"
 import Experience from "./components/Experience"
 import Education from "./components/Education"
+import Contact from "./components/Contact"
 import Cursor from "./components/Cursor"
 import Footer from "./components/Footer"
 import "./styles/Global.css"
@@ -20,6 +21,7 @@ function App() {
       <Education/>
       <Experience/>
       <Projects/>
+      <Contact/>
     </div>
     <Footer/>
   </div>

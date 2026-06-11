@@ -79,14 +79,16 @@ body::before {
 #about,
 #education,
 #experience,
-#projects {
+#projects,
+#contact {
   position: relative;
 }
 
 #about::before,
 #education::before,
 #experience::before,
-#projects::before {
+#projects::before,
+#contact::before {
   content: "";
   position: absolute;
   top: 70px;
@@ -135,7 +137,8 @@ body::before {
   #about::before,
   #education::before,
   #experience::before,
-  #projects::before {
+  #projects::before,
+  #contact::before {
     display: none;
   }
 }
