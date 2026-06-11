@@ -3,8 +3,16 @@
   /* transform: translateY(20px); */
 }
 
-.fade-in.visible {
+.fade-in-up.visible {
   animation: fadeInAnimation 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in-left.visible {
+  animation: fadeInLeftAnimation 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in-right.visible {
+  animation: fadeInRightAnimation 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInAnimation {
@@ -16,6 +24,32 @@
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInLeftAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInRightAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
     filter: blur(0);
   }
 }

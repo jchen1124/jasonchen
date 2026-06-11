@@ -7,36 +7,41 @@ const techstack = ["Python", "React", "Node.js", "TypeScript"];
 const About = () => {
   return (
     <div id="about">
-      <div className="section-head">
-        <span className="section-title">/ About Me</span>
-      </div>
+      <FadeIn>
+        <div className="section-head">
+          <span className="section-title">/ About Me</span>
+        </div>
+      </FadeIn>
+
       <div className="about-content">
-        <div className="about-description">
-          <FadeIn delay={100}>
-            <p>
-              I'm passionate about creating a variety of projects, studying, exploring new
-              technologies, and continuously improving my skills.
-            </p>
-            <p>
-              Outside of academics, I enjoy lifting weights, playing
-              basketball, and hiking
-            </p>
+        <FadeIn
+          className="about-description"
+          direction="left"
+          delay={100}
+        >
+          <p>
+            I'm passionate about creating a variety of projects, studying,
+            exploring new technologies, and continuously improving my skills.
+          </p>
+          <p>
+            Outside of academics, I enjoy lifting weights, playing basketball,
+            and hiking
+          </p>
 
-            <div className="techStack-section">
-              <p>Here are some technologies I've been working with: </p>
+          <div className="techStack-section">
+            <p>Here are some technologies I've been working with: </p>
 
-              <ul className="techStack">
-                {techstack.map((tech, index) => (
-                  <li key={index}>{tech}</li>
-                ))}
-              </ul>
-            </div>
-          </FadeIn>
-        </div>
+            <ul className="techStack">
+              {techstack.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+        </FadeIn>
 
-        <div className="about-image">
+        <FadeIn className="about-image" direction="right" delay={100}>
           <img src={jasonImage} alt="Jason Chen" />
-        </div>
+        </FadeIn>
       </div>
     </div>
   );

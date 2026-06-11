@@ -5,9 +5,16 @@ import { useEffect, useRef, useState } from "react";
 interface FadeInProps {
   children: React.ReactNode;
   delay?: number;
+  direction?: "up" | "left" | "right";
+  className?: string;
 }
 
-const FadeIn = ({ children, delay = 0 }: FadeInProps) => {
+const FadeIn = ({
+  children,
+  delay = 0,
+  direction = "up",
+  className = "",
+}: FadeInProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,7 +43,9 @@ const FadeIn = ({ children, delay = 0 }: FadeInProps) => {
   return (
     <div
       ref={ref}
-      className={`fade-in ${isVisible ? "visible" : ""}`}
+      className={`fade-in fade-in-${direction} ${className} ${
+        isVisible ? "visible" : ""
+      }`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {children}
