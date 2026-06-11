@@ -51,13 +51,24 @@
   transition: width 0.3s ease;
 }
 
-.nav-links .nav-link:hover {
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
   color: var(--green-tint) !important;
   transform: translateY(-2px);
 }
 
-.nav-links .nav-link:hover::after {
+.nav-links .nav-link:hover::after,
+.nav-links .nav-link.active::after {
   width: 50%;
+}
+
+.site-navbar.suppress-nav-hover .nav-links .nav-link:not(.active) {
+  color: var(--white) !important;
+  transform: none;
+}
+
+.site-navbar.suppress-nav-hover .nav-links .nav-link:not(.active)::after {
+  width: 0;
 }
 
 /* Target all icons */
@@ -92,6 +103,20 @@
   background: rgba(100, 255, 218, 0.1);
   color: var(--white) !important;
   transform: translateY(-2px);
+}
+
+.social-icons .contact-nav-button.active {
+  border-color: var(--green-tint);
+  background: var(--green-tint);
+  color: var(--dark-navy) !important;
+  box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.12);
+}
+
+.site-navbar.suppress-nav-hover .contact-nav-button:not(.active) {
+  border-color: rgba(100, 255, 218, 0.62);
+  background: transparent;
+  color: var(--green-tint) !important;
+  transform: none;
 }
 
 .navbar-name {
