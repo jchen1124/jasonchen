@@ -56,10 +56,7 @@ const Contact = () => {
           <div className="contact-intro">
             <span className="contact-kicker">Let&apos;s connect</span>
             <h2>Feel free to reach out and send me a message anytime.</h2>
-            <p>
-              I&apos;m open to software engineering opportunities and
-              collaborations where I can help build meaningful technology.
-            </p>
+            
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>
