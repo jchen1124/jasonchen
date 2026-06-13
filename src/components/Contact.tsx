@@ -55,11 +55,15 @@ const Contact = () => {
         <div className="contact-layout">
           <div className="contact-intro">
             <span className="contact-kicker">Let&apos;s connect</span>
-            <h2>Feel free to reach out and send me a message anytime.</h2>
+            <h3>Feel free to reach out and send me a message anytime.</h3>
             
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="contact-form-heading">
+              <h3>Send me a message</h3>
+            </div>
+
             <label className="contact-honeypot" aria-hidden="true">
               <span>Website</span>
               <input
