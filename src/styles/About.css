@@ -44,6 +44,28 @@
   position: relative;
 }
 
+.about-image::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  right: -20px;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--green-tint);
+  box-shadow: 6px 6px 0 rgba(100, 255, 218, 0.16);
+  transform: rotate(45deg);
+  pointer-events: none;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.about-image:hover::before {
+  transform: rotate(45deg) translate(-2px, -2px);
+  box-shadow: 9px 9px 0 rgba(100, 255, 218, 0.22);
+}
+
 .about-image::after {
   content: "";
   position: absolute;
