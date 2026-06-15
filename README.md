@@ -1,4 +1,4 @@
-# jason-chen.dev - v1
+# jason-chen.dev - v2
 
 A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
 
