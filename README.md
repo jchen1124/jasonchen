@@ -27,4 +27,4 @@ A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
 
 ---
 
-> v1 — Last updated January 2026
+> v1 — Last updated June 2026
