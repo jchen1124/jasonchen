@@ -11,7 +11,8 @@ interface Project {
   tech: string[];
   projectURL: string;
   image: string;
-  link: string
+  link: string;
+  isHackathon: boolean
 }
 
 const featuredProjectTitles = new Set(["Geo Gallery"]);
