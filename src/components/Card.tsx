@@ -10,7 +10,8 @@ interface ProjectType {
   tech: string[];
   projectURL: string;
   image: string;
-  link: string
+  link: string;
+  isHackathon: boolean
 }
 
 interface CardProps {
@@ -27,6 +28,9 @@ const ProjectCard = ({ project }: CardProps) => {
       />
       <Card.Body>
         <Card.Title>{project.title}</Card.Title>
+        {project.isHackathon && (
+          <span className="project-badge">Hackathon</span>
+        )}
         <Card.Text>{project.desc}</Card.Text>
         <Card.Text>{project.tech.join(", ")}</Card.Text>
         <a
