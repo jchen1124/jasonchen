@@ -25,9 +25,10 @@ const NavBar = () => {
     const updateActiveSection = () => {
       const navbarHeight =
         document.querySelector<HTMLElement>(".site-navbar")?.offsetHeight ?? 90;
-      const viewportMarker = navbarHeight + 24;
-      const markerPosition = window.scrollY + viewportMarker;
+      const activationLine =
+        navbarHeight + Math.min(window.innerHeight * 0.28, 180);
       let currentSection = "";
+      let strongestMatch = Number.NEGATIVE_INFINITY;
 
       sectionIds.forEach((id) => {
         const section = document.getElementById(id);
@@ -36,10 +37,19 @@ const NavBar = () => {
           return;
         }
 
-        const sectionPosition =
-          section.getBoundingClientRect().top + window.scrollY;
+        const rect = section.getBoundingClientRect();
+        const visibleTop = Math.max(rect.top, navbarHeight);
+        const visibleBottom = Math.min(rect.bottom, window.innerHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const containsActivationLine =
+          rect.top <= activationLine && rect.bottom >= activationLine;
+        const distanceFromActivationLine = Math.abs(rect.top - activationLine);
+        const matchScore = containsActivationLine
+          ? visibleHeight + 10000
+          : visibleHeight - distanceFromActivationLine;
 
-        if (sectionPosition <= markerPosition) {
+        if (matchScore > strongestMatch) {
+          strongestMatch = matchScore;
           currentSection = id;
         }
       });
@@ -96,7 +106,7 @@ const NavBar = () => {
               <Nav.Link
                 key={id}
                 href={`#${id}`}
-                className={activeSection === id ? "active" : ""}
+                active={activeSection === id}
                 aria-current={activeSection === id ? "page" : undefined}
               >
                 {label}
@@ -107,9 +117,8 @@ const NavBar = () => {
           <Nav className="ms-auto social-icons">
             <Nav.Link
               href="#contact"
-              className={`contact-nav-button ${
-                activeSection === "contact" ? "active" : ""
-              }`}
+              className="contact-nav-button"
+              active={activeSection === "contact"}
               aria-current={activeSection === "contact" ? "page" : undefined}
             >
               Contact Me
