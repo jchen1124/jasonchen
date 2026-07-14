@@ -3,7 +3,7 @@ jason-chen.dev - v2
 </h1>
 
 <p align="center"> 
-The second iteration of <a href="https://jason-chen.dev"><a>jason-chen.dev
+The second iteration of <a href="https://jason-chen.dev">jason-chen.dev<a>
 </p>
 
 <p align="center">
