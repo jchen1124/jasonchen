@@ -1,6 +1,17 @@
-# jason-chen.dev - v2
+<h1 align="center"> 
+jason-chen.dev - v2
+</h1>
 
-A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
+<p align="center"> 
+The second iteration of <a href="https://jason-chen.dev"><a>jason-chen.dev
+</p>
+
+<p align="center">
+<img src="./src/assets/view.jpg" width="100%"/>
+
+</p>
+
+
 
 ## Getting Started
 
@@ -17,7 +28,6 @@ A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
    npm run build
    ```
 
-
 ## Tech Stack
 
 - React 19 + TypeScript
@@ -27,4 +37,3 @@ A modern, responsive portfolio web app for [Jason Chen](https://jason-chen.dev).
 
 ---
 
-> v1 — Last updated June 2026
