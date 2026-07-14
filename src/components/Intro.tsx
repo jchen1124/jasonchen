@@ -1,6 +1,6 @@
 import Typist from "react-typist-component";
 import FadeIn from "./FadeIn";
-import jasonImage from "../assets/jason2.jpg";
+import jasonImage from "../assets/jason3.jpg";
 import "../styles/intro.css";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
