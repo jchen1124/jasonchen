@@ -59,8 +59,8 @@ const JobLists = () => {
       ],
     },
     "DUIT": {
-      title: "AI Engineer Intern @",
-      duration: "June 2026 - Present",
+      title: "Software Engineer Intern @",
+      duration: "May 2026 - Present",
       desc: ["**** STARTING SOON ******"],
     },
   };
