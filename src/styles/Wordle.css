@@ -1,0 +1,72 @@
+.game-mode-wrap {
+  position: fixed;
+  top: calc(90px + 16px);
+  left: var(--page-gutter);
+  z-index: 30;
+  font-family: var(--font-main);
+}
+
+.game-mode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(244, 244, 244, 0.22);
+  border-radius: 5px;
+  background: rgba(12, 43, 78, 0.18);
+  color: rgba(244, 244, 244, 0.68);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+  opacity: 0.76;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.game-mode:hover,
+.game-mode.active {
+  border-color: rgba(100, 255, 218, 0.5);
+  background: rgba(12, 43, 78, 0.36);
+  color: var(--green-tint);
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(12, 43, 78, 0.16);
+}
+
+.game-mode:focus-visible {
+  outline: 3px solid rgba(100, 255, 218, 0.32);
+  outline-offset: 3px;
+}
+
+.game-mode-wrap > div {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: rgba(12, 43, 78, 0.68);
+  color: var(--white);
+  box-shadow: 0 18px 38px rgba(12, 43, 78, 0.24);
+}
+
+@media screen and (max-width: 600px) {
+  .game-mode-wrap {
+    top: calc(65px + 12px);
+    left: 20px;
+  }
+
+  .game-mode {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}

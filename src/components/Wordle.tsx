@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Wordle.css";
 
 const Wordle = () => {
   const [isGameMode, setGameMode] = useState(false);
@@ -20,4 +21,7 @@ const Wordle = () => {
 
     </div>
   );
+
 };
+
+export default Wordle
