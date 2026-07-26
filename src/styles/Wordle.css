@@ -1,7 +1,7 @@
 .game-mode-wrap {
   position: fixed;
   top: calc(90px + 16px);
-  left: var(--page-gutter);
+  left: 20px;
   z-index: 30;
   font-family: var(--font-main);
 }
