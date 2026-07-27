@@ -108,6 +108,7 @@ const Wordle = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        color: isSubmittedGuess ? "white" : "black",
                         backgroundColor:
                           isSubmittedGuess && targetWord
                             ? getColor(targetWord, letter, col)
