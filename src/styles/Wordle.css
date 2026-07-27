@@ -58,6 +58,16 @@
   box-shadow: 0 18px 38px rgba(12, 43, 78, 0.24);
 }
 
+.wordle-grid{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.wordle-grid-row{
+  display: flex;
+  gap: 6px;
+}
+
 @media screen and (max-width: 600px) {
   .game-mode-wrap {
     top: calc(65px + 12px);

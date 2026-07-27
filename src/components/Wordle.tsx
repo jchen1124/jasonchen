@@ -6,6 +6,7 @@ type LetterColor = "green" | "yellow" | "red";
 
 const getWord = () => {
   const randomIndex = Math.floor(Math.random() * ANSWER_WORDS.length);
+  console.log(ANSWER_WORDS[randomIndex])
   return ANSWER_WORDS[randomIndex];
 };
 
@@ -90,7 +91,7 @@ const Wordle = () => {
         <div className="wordle-game">
           <div className="wordle-grid">
             {[...Array(5)].map((_, row) => (
-              <div key={row} style={{ display: "flex" }}>
+              <div className="wordle-grid-row" key={row} style={{ display: "flex" }}>
                 {[...Array(5)].map((_, col) => {
                   const rowGuess =
                     allGuesses[row] ||
