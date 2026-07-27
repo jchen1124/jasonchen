@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ANSWER_WORDS } from "../data/wordleWords";
+import { messages } from "../data/wonMessages";
 import "../styles/Wordle.css";
 
 type LetterColor = "#6AAA63" | "#C9B458" | "#787C7E";
@@ -13,7 +14,7 @@ const getWord = () => {
 const getColor = (
   targetWord: string,
   char: string,
-  index: number
+  index: number,
 ): LetterColor => {
   if (targetWord[index] === char) {
     return "#6AAA63";
@@ -31,12 +32,14 @@ const Wordle = () => {
   const [targetWord, setTargetWord] = useState<string | null>(null);
   const [guess, setGuess] = useState(""); // Current Guess
   const [allGuesses, setAllGuesses] = useState<string[]>([]);
+  const [wonMessage, setWonMessage] = useState<string | null>(null);
 
   const startGame = () => {
     setGameMode(true);
     setTargetWord(getWord());
     setGuess("");
     setAllGuesses([]);
+    setWonMessage(null);
   };
 
   const endGame = () => {
@@ -44,16 +47,27 @@ const Wordle = () => {
     setTargetWord(null);
     setGuess("");
     setAllGuesses([]);
+    setWonMessage(null);
   };
 
   useEffect(() => {
     if (!isGameMode) {
       return;
     }
+
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (wonMessage) {
+        return;
+      }
+
       if (event.key === "Enter") {
-        if (guess.length === 5 && allGuesses.length < 5) {
+        if (guess.length === 5 && allGuesses.length < 5 && targetWord) {
           setAllGuesses((currentGuesses) => [...currentGuesses, guess]);
+
+          if (guess === targetWord) {
+            setWonMessage(messages[allGuesses.length]);
+          }
+
           setGuess("");
         }
 
@@ -75,22 +89,22 @@ const Wordle = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [allGuesses.length, guess, isGameMode]);
+  }, [allGuesses.length, guess, isGameMode, targetWord, wonMessage]);
 
   // handles game-over timeout
   useEffect(() => {
-    if (!isGameMode || allGuesses.length !== 5) {
+    if (!isGameMode || (!wonMessage && allGuesses.length !== 5)) {
       return;
     }
 
     const timer = window.setTimeout(() => {
       endGame();
-    }, 1500);
+    }, 2000);
 
     return () => {
       window.clearTimeout(timer);
     };
-  }, [allGuesses.length, isGameMode]);
+  }, [allGuesses.length, isGameMode, wonMessage]);
 
   return (
     <div className="game-mode-wrap">
@@ -101,19 +115,21 @@ const Wordle = () => {
         <span>{isGameMode ? "End Game" : "Game Mode"}</span>
       </button>
 
-      {allGuesses.length === 5 && (
-        <div>{targetWord}</div>
-      )}
+      {allGuesses.length === 5 && !wonMessage && <div>{targetWord}</div>}
+      {wonMessage && <div>{wonMessage}</div>}
 
-      {isGameMode &&(
+      {isGameMode && (
         <div className="wordle-game">
           <div className="wordle-grid">
             {[...Array(5)].map((_, row) => (
-              <div className="wordle-grid-row" key={row} style={{ display: "flex" }}>
+              <div
+                className="wordle-grid-row"
+                key={row}
+                style={{ display: "flex" }}
+              >
                 {[...Array(5)].map((_, col) => {
                   const rowGuess =
-                    allGuesses[row] ||
-                    (row === allGuesses.length ? guess : "");
+                    allGuesses[row] || (row === allGuesses.length ? guess : "");
                   const letter = rowGuess[col] || "";
                   const isSubmittedGuess = Boolean(allGuesses[row]);
 
