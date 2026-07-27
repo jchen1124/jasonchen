@@ -11,7 +11,6 @@ export const ANSWER_WORDS = [
   "CACHE",
   "TOKEN",
   "ROUTE",
-  "STYLE",
   "FETCH",
   "INPUT",
   "CLASS",
