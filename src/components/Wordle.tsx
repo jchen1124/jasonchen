@@ -4,6 +4,7 @@ import { messages } from "../data/wonMessages";
 import "../styles/Wordle.css";
 
 type LetterColor = "#6AAA63" | "#C9B458" | "#787C7E";
+const GRID_SIZE = 5;
 
 const getWord = () => {
   const randomIndex = Math.floor(Math.random() * ANSWER_WORDS.length);
@@ -111,43 +112,43 @@ const Wordle = () => {
       <button
         className={`game-mode ${isGameMode ? "active" : ""}`}
         onClick={isGameMode ? endGame : startGame}
+        type="button"
       >
         <span>{isGameMode ? "End Game" : "Game Mode"}</span>
       </button>
 
-      {allGuesses.length === 5 && !wonMessage && <div>{targetWord}</div>}
-      {wonMessage && <div>{wonMessage}</div>}
-
       {isGameMode && (
         <div className="wordle-game">
+          {(wonMessage || allGuesses.length === GRID_SIZE) && (
+            <div className="wordle-result" aria-live="polite">
+              {wonMessage || targetWord}
+            </div>
+          )}
+
           <div className="wordle-grid">
-            {[...Array(5)].map((_, row) => (
-              <div
-                className="wordle-grid-row"
-                key={row}
-                style={{ display: "flex" }}
-              >
-                {[...Array(5)].map((_, col) => {
+            {[...Array(GRID_SIZE)].map((_, row) => (
+              <div className="wordle-grid-row" key={row}>
+                {[...Array(GRID_SIZE)].map((_, col) => {
                   const rowGuess =
                     allGuesses[row] || (row === allGuesses.length ? guess : "");
                   const letter = rowGuess[col] || "";
                   const isSubmittedGuess = Boolean(allGuesses[row]);
+                  const isCurrentTile =
+                    !isSubmittedGuess &&
+                    row === allGuesses.length &&
+                    Boolean(letter);
 
                   return (
                     <div
+                      className={`wordle-tile ${
+                        isSubmittedGuess ? "submitted" : ""
+                      } ${isCurrentTile ? "current" : ""}`}
                       key={col}
                       style={{
-                        width: 40,
-                        height: 40,
-                        border: "1px solid black",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: isSubmittedGuess ? "white" : "black",
                         backgroundColor:
                           isSubmittedGuess && targetWord
                             ? getColor(targetWord, letter, col)
-                            : "white",
+                            : undefined,
                       }}
                     >
                       {letter}
