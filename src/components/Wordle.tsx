@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import { ANSWER_WORDS } from "../data/wordleWords";
 import "../styles/Wordle.css";
 
@@ -28,17 +28,34 @@ const getColor = (
 const Wordle = () => {
   const [isGameMode, setGameMode] = useState(false);
   const [targetWord, setTargetWord] = useState<string | null>(null);
-  const [allGuesses] = useState<string[]>([]);
+  const [guess, setGuess] = useState(""); // Current Guess
+  const [allGuesses, setAllGuesses] = useState<string[]>([]);
 
   const startGame = () => {
     setGameMode(true);
     setTargetWord(getWord());
+    setGuess("");
+    setAllGuesses([]);
   };
 
   const endGame = () => {
     setGameMode(false);
     setTargetWord(null);
+    setGuess("");
+    setAllGuesses([]);
   };
+
+  const submitGuess = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (guess.length !== 5 || allGuesses.length >= 5) {
+      return;
+    }
+
+    setAllGuesses((currentGuesses) => [...currentGuesses, guess]);
+    setGuess("");
+  };
+
   return (
     <div className="game-mode-wrap">
       <button
@@ -49,29 +66,49 @@ const Wordle = () => {
       </button>
 
       {isGameMode && (
-        <div>
-          {[...Array(5)].map((_, row) => (
-            <div key={row} style={{ display: "flex" }}>
-              {[...Array(5)].map((_, col) => (
-                <div
-                  key={col}
-                  style={{
-                    width: 40,
-                    height: 40,
-                    border: "1px solid black",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: allGuesses[row] && targetWord
-                      ? getColor(targetWord, allGuesses[row]?.[col] || "", col)
-                      : "white",
-                  }}
-                >
-                  {allGuesses[row]?.[col] || ""}
-                </div>
-              ))}
-            </div>
-          ))}
+        <div className="wordle-game">
+          <div className="wordle-grid">
+            {[...Array(5)].map((_, row) => (
+              <div key={row} style={{ display: "flex" }}>
+                {[...Array(5)].map((_, col) => (
+                  <div
+                    key={col}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      border: "1px solid black",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      backgroundColor: allGuesses[row] && targetWord
+                        ? getColor(
+                            targetWord,
+                            allGuesses[row]?.[col] || "",
+                            col
+                          )
+                        : "white",
+                    }}
+                  >
+                    {allGuesses[row]?.[col] || ""}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <form className="wordle-form" onSubmit={submitGuess}>
+            <input
+              className="wordle-input"
+              value={guess}
+              maxLength={5}
+              onChange={(event) =>
+                setGuess(event.target.value.toUpperCase().slice(0, 5))
+              }
+            />
+            <button className="wordle-submit" type="submit">
+              Enter
+            </button>
+          </form>
         </div>
       )}
     </div>
