@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ANSWER_WORDS } from "../data/wordleWords";
 import "../styles/Wordle.css";
 
-type LetterColor = "green" | "yellow" | "red";
+type LetterColor = "#6AAA63" | "#C9B458" | "#787C7E";
 
 const getWord = () => {
   const randomIndex = Math.floor(Math.random() * ANSWER_WORDS.length);
@@ -16,14 +16,14 @@ const getColor = (
   index: number
 ): LetterColor => {
   if (targetWord[index] === char) {
-    return "green";
+    return "#6AAA63";
   }
 
   if (targetWord.includes(char)) {
-    return "yellow";
+    return "#C9B458";
   }
 
-  return "red";
+  return "#787C7E";
 };
 
 const Wordle = () => {
@@ -50,7 +50,6 @@ const Wordle = () => {
     if (!isGameMode) {
       return;
     }
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         if (guess.length === 5 && allGuesses.length < 5) {
@@ -78,6 +77,21 @@ const Wordle = () => {
     };
   }, [allGuesses.length, guess, isGameMode]);
 
+  // handles game-over timeout
+  useEffect(() => {
+    if (!isGameMode || allGuesses.length !== 5) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      endGame();
+    }, 1500);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [allGuesses.length, isGameMode]);
+
   return (
     <div className="game-mode-wrap">
       <button
@@ -87,7 +101,11 @@ const Wordle = () => {
         <span>{isGameMode ? "End Game" : "Game Mode"}</span>
       </button>
 
-      {isGameMode && (
+      {allGuesses.length === 5 && (
+        <div>{targetWord}</div>
+      )}
+
+      {isGameMode &&(
         <div className="wordle-game">
           <div className="wordle-grid">
             {[...Array(5)].map((_, row) => (
