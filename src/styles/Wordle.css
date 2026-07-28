@@ -119,6 +119,47 @@
   box-shadow: inset 0 -2px 0 rgba(12, 43, 78, 0.18);
 }
 
+.game-mode-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-info {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(244, 244, 244, 0.54);
+  line-height: 1;
+  opacity: 0.72;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.game-info:hover {
+  color: var(--green-tint);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.game-info:focus-visible {
+  outline: 2px solid rgba(100, 255, 218, 0.36);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.game-info .MuiSvgIcon-root {
+  width: 19px;
+  height: 19px;
+}
+
 @media screen and (max-width: 600px) {
   .game-mode-wrap {
     top: calc(65px + 12px);

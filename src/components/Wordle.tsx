@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { ANSWER_WORDS } from "../data/wordleWords";
 import { messages } from "../data/wonMessages";
 import "../styles/Wordle.css";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 type LetterColor = "#6AAA63" | "#C9B458" | "#787C7E";
 const GRID_SIZE = 5;
 
 const getWord = () => {
   const randomIndex = Math.floor(Math.random() * ANSWER_WORDS.length);
-  console.log(ANSWER_WORDS[randomIndex])
   return ANSWER_WORDS[randomIndex];
 };
 
@@ -48,7 +48,7 @@ const Wordle = () => {
     setTargetWord(null);
     setGuess("");
     setAllGuesses([]);
-    setWonMessage(null); 
+    setWonMessage(null);
   };
 
   useEffect(() => {
@@ -109,13 +109,25 @@ const Wordle = () => {
 
   return (
     <div className="game-mode-wrap">
-      <button
-        className={`game-mode ${isGameMode ? "active" : ""}`}
-        onClick={isGameMode ? endGame : startGame}
-        type="button"
-      >
-        <span>{isGameMode ? "End Game" : "Game Mode"}</span>
-      </button>
+      <div className="game-mode-buttons">
+        <button
+          className={`game-mode ${isGameMode ? "active" : ""}`}
+          onClick={isGameMode ? endGame : startGame}
+          type="button"
+        >
+          <span>{isGameMode ? "End Game" : "Game Mode"}</span>
+        </button>
+        {isGameMode && (
+          <button
+            aria-label="Game info"
+            className="game-info"
+            title="Game info"
+            type="button"
+          >
+            <InfoOutlinedIcon />
+          </button>
+        )}
+      </div>
 
       {isGameMode && (
         <div className="wordle-game">
