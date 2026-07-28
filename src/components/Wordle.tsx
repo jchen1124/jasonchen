@@ -128,9 +128,32 @@ const Wordle = () => {
               <InfoOutlinedIcon />
             </button>
 
-            <div className="game-info-popover">
-              Type a 5-letter tech word. Press Enter to submit and Backspace to
-              delete.
+            <div className="game-info-popover" role="tooltip">
+              <div className="game-info-title">Tech Wordle</div>
+              <p className="game-info-copy">
+                Guess the hidden 5-letter tech word in 5 tries.
+              </p>
+
+              <div className="game-info-rules">
+                <span>Type letters directly on the board.</span>
+                <span>Press Enter to submit.</span>
+                <span>Use Backspace to delete.</span>
+              </div>
+
+              <div className="game-info-legend" aria-label="Color meanings">
+                <div className="game-info-legend-item">
+                  <span className="game-info-swatch correct" />
+                  <span>Correct spot</span>
+                </div>
+                <div className="game-info-legend-item">
+                  <span className="game-info-swatch close" />
+                  <span>Wrong spot</span>
+                </div>
+                <div className="game-info-legend-item">
+                  <span className="game-info-swatch missing" />
+                  <span>Not in word</span>
+                </div>
+              </div>
             </div>
           </div>
         )}

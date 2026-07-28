@@ -169,10 +169,10 @@
 .game-info-popover {
   position: absolute;
   top: calc(100% + 20px);
-  left: -92px;
+  left: -108px;
   z-index: 3;
-  width: 228px;
-  padding: 10px 12px;
+  width: 260px;
+  padding: 14px;
   border: 1px solid var(--line-soft);
   border-radius: 6px;
   background: rgba(12, 43, 78, 0.94);
@@ -193,13 +193,84 @@
   content: "";
   position: absolute;
   top: -5px;
-  left: 102px;
+  left: 118px;
   width: 8px;
   height: 8px;
   border-left: 1px solid var(--line-soft);
   border-top: 1px solid var(--line-soft);
   background: rgba(12, 43, 78, 0.94);
   transform: rotate(45deg);
+}
+
+.game-info-title {
+  margin-bottom: 6px;
+  color: var(--green-tint);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.game-info-copy {
+  margin: 0 0 10px;
+  color: rgba(244, 244, 244, 0.86);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.game-info-rules {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 12px;
+  color: rgba(244, 244, 244, 0.74);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.game-info-rules span::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  margin-right: 7px;
+  border-radius: 999px;
+  background: rgba(100, 255, 218, 0.62);
+  vertical-align: 2px;
+}
+
+.game-info-legend {
+  display: grid;
+  gap: 7px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(244, 244, 244, 0.12);
+}
+
+.game-info-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(244, 244, 244, 0.82);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.game-info-swatch {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 rgba(12, 43, 78, 0.22);
+}
+
+.game-info-swatch.correct {
+  background: #6AAA63;
+}
+
+.game-info-swatch.close {
+  background: #C9B458;
+}
+
+.game-info-swatch.missing {
+  background: #787C7E;
 }
 
 .game-info-wrap:hover .game-info-popover,
@@ -236,6 +307,7 @@
   }
 
   .game-info-popover {
+    width: 236px;
     left: auto;
     right: -6px;
     transform: translateY(-4px);
