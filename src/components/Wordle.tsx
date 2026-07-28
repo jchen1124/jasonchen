@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { ANSWER_WORDS } from "../data/wordleWords";
+import { ANSWER_WORDS, type WordleWord } from "../data/wordleWords";
 import { messages } from "../data/wonMessages";
 import "../styles/Wordle.css";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 
 type LetterColor = "#6AAA63" | "#C9B458" | "#787C7E";
 const GRID_SIZE = 5;
@@ -36,7 +37,7 @@ const clearButtonFocus = () => {
 
 const Wordle = () => {
   const [isGameMode, setGameMode] = useState(false);
-  const [targetWord, setTargetWord] = useState<string | null>(null);
+  const [targetWord, setTargetWord] = useState<WordleWord | null>(null);
   const [guess, setGuess] = useState(""); // Current Guess
   const [allGuesses, setAllGuesses] = useState<string[]>([]);
   const [wonMessage, setWonMessage] = useState<string | null>(null);
@@ -59,6 +60,7 @@ const Wordle = () => {
     setWonMessage(null);
   };
 
+
   useEffect(() => {
     if (!isGameMode) {
       return;
@@ -75,7 +77,7 @@ const Wordle = () => {
         if (guess.length === 5 && allGuesses.length < 5 && targetWord) {
           setAllGuesses((currentGuesses) => [...currentGuesses, guess]);
 
-          if (guess === targetWord) {
+          if (guess === targetWord.word) {
             setWonMessage(messages[allGuesses.length]);
           }
 
@@ -143,7 +145,7 @@ const Wordle = () => {
             <div className="game-info-popover" role="tooltip">
               <div className="game-info-title">Tech Wordle</div>
               <p className="game-info-copy">
-                Guess the hidden 5-letter tech word in 5 tries.
+                Guess the hidden 5-letter word in 5 tries.
               </p>
 
               <div className="game-info-rules">
@@ -175,11 +177,28 @@ const Wordle = () => {
         <div className="wordle-game">
           {(wonMessage || allGuesses.length === GRID_SIZE) && (
             <div className="wordle-result" aria-live="polite">
-              {wonMessage || targetWord}
+              {wonMessage || targetWord?.word}
             </div>
           )}
 
           <div className="wordle-grid">
+            {allGuesses.length >= 2 && (
+              <div className="hint-wrap">
+                <button
+                  aria-label="Show hint"
+                  className="hint-btn"
+                  title="Hint"
+                  type="button"
+                >
+                  <TipsAndUpdatesOutlinedIcon />
+                </button>
+
+                <div className="hint-popover" role="tooltip">
+                  <span className="hint-title">Hint</span>
+                  <p>{targetWord?.hint}</p>
+                </div>
+              </div>
+            )}
             {[...Array(GRID_SIZE)].map((_, row) => (
               <div className="wordle-grid-row" key={row}>
                 {[...Array(GRID_SIZE)].map((_, col) => {
@@ -201,7 +220,7 @@ const Wordle = () => {
                       style={{
                         backgroundColor:
                           isSubmittedGuess && targetWord
-                            ? getColor(targetWord, letter, col)
+                            ? getColor(targetWord.word, letter, col)
                             : undefined,
                       }}
                     >
