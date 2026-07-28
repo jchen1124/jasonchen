@@ -118,14 +118,21 @@ const Wordle = () => {
           <span>{isGameMode ? "End Game" : "Game Mode"}</span>
         </button>
         {isGameMode && (
-          <button
-            aria-label="Game info"
-            className="game-info"
-            title="Game info"
-            type="button"
-          >
-            <InfoOutlinedIcon />
-          </button>
+          <div className="game-info-wrap">
+            <button
+              aria-label="Game info"
+              className="game-info"
+              title="Game info"
+              type="button"
+            >
+              <InfoOutlinedIcon />
+            </button>
+
+            <div className="game-info-popover">
+              Type a 5-letter tech word. Press Enter to submit and Backspace to
+              delete.
+            </div>
+          </div>
         )}
       </div>
 
