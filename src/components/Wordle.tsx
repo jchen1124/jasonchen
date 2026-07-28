@@ -48,7 +48,7 @@ const Wordle = () => {
     setTargetWord(null);
     setGuess("");
     setAllGuesses([]);
-    setWonMessage(null);
+    setWonMessage(null); 
   };
 
   useEffect(() => {
