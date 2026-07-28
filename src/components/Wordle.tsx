@@ -28,6 +28,12 @@ const getColor = (
   return "#787C7E";
 };
 
+const clearButtonFocus = () => {
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+};
+
 const Wordle = () => {
   const [isGameMode, setGameMode] = useState(false);
   const [targetWord, setTargetWord] = useState<string | null>(null);
@@ -36,6 +42,7 @@ const Wordle = () => {
   const [wonMessage, setWonMessage] = useState<string | null>(null);
 
   const startGame = () => {
+    clearButtonFocus();
     setGameMode(true);
     setTargetWord(getWord());
     setGuess("");
@@ -44,6 +51,7 @@ const Wordle = () => {
   };
 
   const endGame = () => {
+    clearButtonFocus();
     setGameMode(false);
     setTargetWord(null);
     setGuess("");
@@ -62,6 +70,8 @@ const Wordle = () => {
       }
 
       if (event.key === "Enter") {
+        event.preventDefault();
+
         if (guess.length === 5 && allGuesses.length < 5 && targetWord) {
           setAllGuesses((currentGuesses) => [...currentGuesses, guess]);
 
@@ -76,11 +86,13 @@ const Wordle = () => {
       }
 
       if (event.key === "Backspace") {
+        event.preventDefault();
         setGuess((currentGuess) => currentGuess.slice(0, -1));
         return;
       }
 
       if (/^[a-zA-Z]$/.test(event.key) && guess.length < 5) {
+        event.preventDefault();
         setGuess((currentGuess) => (currentGuess + event.key).toUpperCase());
       }
     };
