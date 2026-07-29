@@ -60,7 +60,6 @@ const Wordle = () => {
     setWonMessage(null);
   };
 
-
   useEffect(() => {
     if (!isGameMode) {
       return;
@@ -180,7 +179,7 @@ const Wordle = () => {
               {wonMessage || targetWord?.word}
             </div>
           )}
-
+          
           <div className="wordle-grid">
             {allGuesses.length >= 2 && (
               <div className="hint-wrap">
