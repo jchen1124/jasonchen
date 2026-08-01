@@ -40,28 +40,32 @@ function a11yProps(index: number) {
 
 const JobLists = () => {
   const Experience_data = {
+    "Davis Unlimited Information Technologies": {
+      title: "Software Engineer Intern @",
+      duration: "June 2026 - August 2026",
+      desc: [
+        "Built and maintained GitLab CI/CD pipelines for a Python application, automating Pytest testing and deployments to an AWS EC2 instance.",
+        "Troubleshot and fixed issues across local development, CI pipelines, and AWS deployment environments to improve reliability.",
+        "Built an embedding-based CUI retrieval system using Ollama embeddings to provide the LLM with relevant category context before classification, improving the consistency of predictions.",
+      ],
+    },
     "U.S Army DevCom": {
-      title: "Machine Learning Intern @",
+      title: "Software Engineer Intern @",
       duration: "June 2025 - August 2025",
       desc: [
-        "Optimized YOLOv8 models for the detection and classification of airborne objects, achieving an 18% increase in detection accuracy and a 12% reduction in false positives compared to baseline performance.",
-        "Engineered automated preprocessing and annotation conversion pipelines (COCO to YOLO), which standardized 50K+ aerial images and reduced manual labeling errors by 30%",
-        "Deployed lightweight computer vision models to airborne sensor platforms, ensuring 95% real-time reliability for high-speed data processing across electro-optical and event-based cameras.",
-        "Streamlined data ingestion workflows by developing Python-based scripts to handle multi-source imagery, improving the efficiency of the model training lifecycle.",
+        "Fine-tuned and validated YOLOv8 detection models on security-focused aerial datasets, improving detection accuracy by 18% while meeting real-time latency and power constraints on airborne sensor platforms.",
+        "Developed automated data processing and training pipelines for 50K+ multi-source aerial images, standardizing COCO → YOLO annotations, reducing labeling errors by 30%, and cutting experiment turnaround time by 50%.",
+        "Optimized inference deployment for electro-optical and event-based cameras, profiling model performance to achieve under 100ms per-frame latency on resource-constrained airborne hardware.",
       ],
     },
     "Platinum Business Services LLC": {
       title: "Data Artificial Intelligence Intern @",
       duration: "February 2026 - May 2026",
-      desc: ["Researched and prototyped AI-driven simulation approaches for modeling complex drug diffusion and biological interaction systems.",
+      desc: [
+        "Researched and prototyped AI-driven simulation approaches for modeling complex drug diffusion and biological interaction systems.",
         "Investigated surrogate neural network and digital twin architectures to improve scalability and reduce computational overhead in large-scale simulation environments.",
-        "Architecting a bidirectional data pipeline that integrates genomic resistance models with active simulations, enabling automated, real-time feedback loops and dynamic state management."
+        "Architecting a bidirectional data pipeline that integrates genomic resistance models with active simulations, enabling automated, real-time feedback loops and dynamic state management.",
       ],
-    },
-    "DUIT": {
-      title: "Software Engineer Intern @",
-      duration: "May 2026 - Present",
-      desc: ["**** STARTING SOON ******"],
     },
   };
 
