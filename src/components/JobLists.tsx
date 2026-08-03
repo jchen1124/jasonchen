@@ -82,10 +82,6 @@ const JobLists = () => {
       className="job-list-container"
       sx={{
         flexGrow: 1,
-        bgcolor: "background.paper",
-        display: "flex",
-        height: "auto", // Changed from 224
-        minHeight: "400px", // Add minimum height
       }}
     >
       <Tabs
@@ -93,7 +89,7 @@ const JobLists = () => {
         variant="scrollable"
         value={value}
         onChange={handleChange}
-        aria-label="Vertical tabs example"
+        aria-label="Experience companies"
         sx={{
           borderRight: 1,
           borderColor: "divider",
