@@ -45,8 +45,8 @@ const JobLists = () => {
       duration: "June 2026 - August 2026",
       desc: [
         "Built and maintained GitLab CI/CD pipelines for a Python application, automating Pytest testing and deployments to an AWS EC2 instance.",
+        "Developed an embedding-based CUI retrieval system using Ollama embeddings to provide the LLM with relevant category context before classification, improving the consistency of predictions.",
         "Troubleshot and fixed issues across local development, CI pipelines, and AWS deployment environments to improve reliability.",
-        "Built an embedding-based CUI retrieval system using Ollama embeddings to provide the LLM with relevant category context before classification, improving the consistency of predictions.",
       ],
     },
     "U.S Army DevCom": {
