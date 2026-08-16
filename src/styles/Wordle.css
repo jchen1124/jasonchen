@@ -188,6 +188,8 @@
   left: -108px;
   z-index: 3;
   width: 260px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
   padding: 14px;
   border: 1px solid var(--line-soft);
   border-radius: 6px;
@@ -420,15 +422,18 @@
   }
 
   .game-info-popover {
-    width: 236px;
-    left: auto;
-    right: -6px;
+    position: fixed;
+    top: calc(65px + 58px);
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
     transform: translateY(-4px);
   }
 
   .game-info-popover::before {
-    left: auto;
-    right: 8px;
+    left: 116px;
+    right: auto;
     transform: rotate(45deg);
   }
 
