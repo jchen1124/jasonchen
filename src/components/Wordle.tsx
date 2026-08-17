@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ANSWER_WORDS, type WordleWord } from "../data/wordleWords";
 import { messages } from "../data/wonMessages";
 import "../styles/Wordle.css";
@@ -36,11 +36,16 @@ const clearButtonFocus = () => {
 };
 
 const Wordle = () => {
+  const gameInputRef = useRef<HTMLInputElement>(null);
   const [isGameMode, setGameMode] = useState(false);
   const [targetWord, setTargetWord] = useState<WordleWord | null>(null);
   const [guess, setGuess] = useState(""); // Current Guess
   const [allGuesses, setAllGuesses] = useState<string[]>([]);
   const [wonMessage, setWonMessage] = useState<string | null>(null);
+
+  const focusGameInput = useCallback(() => {
+    gameInputRef.current?.focus({ preventScroll: true });
+  }, []);
 
   const startGame = () => {
     clearButtonFocus();
@@ -49,6 +54,7 @@ const Wordle = () => {
     setGuess("");
     setAllGuesses([]);
     setWonMessage(null);
+    focusGameInput();
   };
 
   const endGame = () => {
@@ -60,20 +66,14 @@ const Wordle = () => {
     setWonMessage(null);
   };
 
-  useEffect(() => {
-    if (!isGameMode) {
-      return;
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (wonMessage) {
+  const handleGameInput = useCallback(
+    (key: string) => {
+      if (wonMessage || allGuesses.length >= GRID_SIZE) {
         return;
       }
 
-      if (event.key === "Enter") {
-        event.preventDefault();
-
-        if (guess.length === 5 && allGuesses.length < 5 && targetWord) {
+      if (key === "Enter") {
+        if (guess.length === GRID_SIZE && targetWord) {
           setAllGuesses((currentGuesses) => [...currentGuesses, guess]);
 
           if (guess === targetWord.word) {
@@ -86,15 +86,37 @@ const Wordle = () => {
         return;
       }
 
-      if (event.key === "Backspace") {
-        event.preventDefault();
+      if (key === "Backspace") {
         setGuess((currentGuess) => currentGuess.slice(0, -1));
         return;
       }
 
-      if (/^[a-zA-Z]$/.test(event.key) && guess.length < 5) {
+      if (/^[a-zA-Z]$/.test(key) && guess.length < GRID_SIZE) {
+        setGuess((currentGuess) => (currentGuess + key).toUpperCase());
+      }
+    },
+    [allGuesses.length, guess, targetWord, wonMessage],
+  );
+
+  useEffect(() => {
+    if (isGameMode) {
+      focusGameInput();
+    }
+  }, [focusGameInput, isGameMode]);
+
+  useEffect(() => {
+    if (!isGameMode) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.key === "Enter" ||
+        event.key === "Backspace" ||
+        /^[a-zA-Z]$/.test(event.key)
+      ) {
         event.preventDefault();
-        setGuess((currentGuess) => (currentGuess + event.key).toUpperCase());
+        handleGameInput(event.key);
       }
     };
 
@@ -103,11 +125,11 @@ const Wordle = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [allGuesses.length, guess, isGameMode, targetWord, wonMessage]);
+  }, [handleGameInput, isGameMode]);
 
   // handles game-over timeout
   useEffect(() => {
-    if (!isGameMode || (!wonMessage && allGuesses.length !== 5)) {
+    if (!isGameMode || (!wonMessage && allGuesses.length !== GRID_SIZE)) {
       return;
     }
 
@@ -172,8 +194,35 @@ const Wordle = () => {
         )}
       </div>
 
+      <input
+        aria-label="Wordle guess"
+        autoCapitalize="characters"
+        autoComplete="off"
+        autoCorrect="off"
+        className="wordle-native-input"
+        enterKeyHint="done"
+        inputMode="text"
+        maxLength={GRID_SIZE}
+        onChange={(event) => {
+          if (!isGameMode || wonMessage || allGuesses.length >= GRID_SIZE) {
+            return;
+          }
+
+          setGuess(
+            event.currentTarget.value
+              .replace(/[^a-zA-Z]/g, "")
+              .slice(0, GRID_SIZE)
+              .toUpperCase(),
+          );
+        }}
+        ref={gameInputRef}
+        spellCheck={false}
+        type="text"
+        value={guess}
+      />
+
       {isGameMode && (
-        <div className="wordle-game">
+        <div className="wordle-game" onClick={focusGameInput}>
           {(wonMessage || allGuesses.length === GRID_SIZE) && (
             <div className="wordle-result" aria-live="polite">
               {wonMessage || targetWord?.word}

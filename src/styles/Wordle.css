@@ -49,7 +49,10 @@
 }
 
 .wordle-game {
+  position: relative;
   width: max-content;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
   margin-top: 12px;
   padding: 16px;
   border: 1px solid var(--line-soft);
@@ -58,6 +61,19 @@
   color: var(--white);
   backdrop-filter: blur(18px);
   box-shadow: 0 18px 38px rgba(12, 43, 78, 0.24);
+  cursor: text;
+}
+
+.wordle-native-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0.01;
+  pointer-events: none;
 }
 
 .wordle-result {
@@ -172,6 +188,8 @@
   left: -108px;
   z-index: 3;
   width: 260px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
   padding: 14px;
   border: 1px solid var(--line-soft);
   border-radius: 6px;
@@ -404,15 +422,18 @@
   }
 
   .game-info-popover {
-    width: 236px;
-    left: auto;
-    right: -6px;
+    position: fixed;
+    top: calc(65px + 58px);
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
     transform: translateY(-4px);
   }
 
   .game-info-popover::before {
-    left: auto;
-    right: 8px;
+    left: 116px;
+    right: auto;
     transform: rotate(45deg);
   }
 
